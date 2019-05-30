@@ -1,21 +1,31 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Project</title>
+    <%= stylesheet_link_tag 'application', media: 'all',
+                                           'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
   </head>
-
   <body>
-    <% if notice %>
-        <p class="alert alert-success"><%= notice %></p>
-    <% end %>
-    <% if alert %>
-        <p class="alert alert-danger"><%= alert %></p>
-    <% end %>
-    <%= yield %>
+    <header class="navbar navbar-fixed-top navbar-inverse">
+      <div class="container">
+        <%= link_to "War-Rails", root_path , id: "logo" %>
+        <nav>
+          <ul class="nav navbar-nav pull-left">
+            <li><%= link_to "REGOLAMENTO",   regolamento_path %></li>
+            <li><%= link_to "INFOCLAN",  infoclan_path %></li>
+            <li><%= link_to "ABOUTAPP", aboutapp_path %></li>
+            <li><%= link_to "CONTATTI", contatti_path %></li>
+          </ul>
+          <ul class ="nav navbar-nav pull-right">
+            <li><%= link_to "LOGIN", '#' %></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <div class="container">
+      <%= yield %>
+    </div>
   </body>
 </html>
