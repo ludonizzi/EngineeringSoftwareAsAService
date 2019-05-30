@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+<<<<<<< HEAD
   get 'home/index'
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
@@ -11,6 +12,8 @@ authenticated :user do
   end
 
 
+=======
+>>>>>>> parent of c19ed58... Aggiunta file devise
   get 'static_pages/home'
   get 'static_pages/regolamento'
   get 'static_pages/infoclan'
