@@ -1,0 +1,16 @@
+<header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="container">
+    <%= link_to "sample app", root_path, id: "logo" %>
+    <nav>
+      <ul class="nav navbar-nav pull-left">
+        <li><%= link_to "REGOLAMENTO",   regolamento_path %></li>
+            <li><%= link_to "INFOCLAN",   infoclan_path %></li>
+            <li><%= link_to "ABOUTAPP", about_app %></li>
+            <li><%= link_to "CONTATTI", contatti_app %></li>
+      </ul>
+      <ul class ="nav navbar-nav pull-right">
+        <li><%= link_to "LOGIN", '#' %></li>
+      </ul>
+    </nav>
+  </div>
+</header>
