@@ -5,25 +5,11 @@
                                            'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
-    
+
   </head>
   <body>
-    <header class="navbar navbar-fixed-top navbar-inverse">
-      <div class="container">
-        <%= link_to "War-Rails", root_path , id: "logo" %>
-        <nav>
-          <ul class="nav navbar-nav pull-left">
-            <li><%= link_to "REGOLAMENTO",   regolamento_path %></li>
-            <li><%= link_to "INFOCLAN",  infoclan_path %></li>
-            <li><%= link_to "ABOUTAPP", aboutapp_path %></li>
-            <li><%= link_to "CONTATTI", contatti_path %></li>
-          </ul>
-          <ul class ="nav navbar-nav pull-right">
-            <li><%= link_to "LOGIN", '#' %></li>
-          </ul>
-        </nav>
-      </div>
-    </header>
+    <%= render 'layouts/header' %>
+
     <div class="container">
       <%= yield %>
     </div>

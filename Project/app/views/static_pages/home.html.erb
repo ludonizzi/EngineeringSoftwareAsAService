@@ -4,20 +4,24 @@
 
 <html>
 <head>
-<title>Home</title>
+<title>War-Rails</title>
 </head>
 
   <h1>War-Rails</h1>
 
   <h2>
-    Info Application and About Us. <br/> <br/>
-    - Choose your side !!!
+<p>    Benvenuti nella nostra applicazione Rails!  <br>
+    Iscriviti subito, scegli il tuo clan e il tuo equipaggiamneto
+    e preparati per combattere contro gli altri giocatori!!<br> Per saperne di più
+    visita la pagina del <%= link_to "Regolamento", regolamento_path %> dove potrai trovare informazioni dettagliate
+    sulle regole del gioco oppure la pagina dei <%= link_to "Clan", infoclan_path %> dove troverai le
+    caratteristiche dei Clan. </p>  <br>
   </h2>
     <br/>
     <br/>
     <br/>
     <br/>
-  <%= link_to "Sign up now!", '#', class: "btn btn-lg btn-primary" %>
+  <%= link_to "Sign up now!", "/users/sign_up", class: "btn btn-lg btn-primary" %>
 </div>
 
 

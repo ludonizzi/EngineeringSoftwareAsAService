@@ -1,15 +1,18 @@
+
+
 <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="container">
-    <%= link_to "sample app", root_path, id: "logo" %>
+    <%= link_to "War-Rails", root_path, id: "logo" %>
     <nav>
       <ul class="nav navbar-nav pull-left">
         <li><%= link_to "REGOLAMENTO",   regolamento_path %></li>
             <li><%= link_to "INFOCLAN",   infoclan_path %></li>
-            <li><%= link_to "ABOUTAPP", about_app %></li>
-            <li><%= link_to "CONTATTI", contatti_app %></li>
+            <li><%= link_to "ABOUTAPP", aboutapp_path %></li>
+            <li><%= link_to "CONTATTI", contatti_path %></li>
       </ul>
-      <ul class ="nav navbar-nav pull-right">
-        <li><%= link_to "LOGIN", '#' %></li>
+      <ul class ="nav navbar-nav navbar-right">
+        <li><a href="/users/sign_up"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+    <li><a href="/users/sign_in"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
       </ul>
     </nav>
   </div>
