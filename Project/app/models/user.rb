@@ -7,7 +7,7 @@ class User < ApplicationRecord
 
 
     #Canard Roles
-        acts_as_user :roles => [ :chieftain, :user, :admin ]
+    acts_as_user :roles => [:unregistered ,:user, :chieftain,  :admin ]
 
 
 end

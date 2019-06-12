@@ -10,9 +10,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+    super do |resource|
+      resource.roles_mask = "2"
+    end
+  end
 
   # GET /resource/edit
   # def edit
@@ -38,7 +40,17 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  # protected
+    #protected
+
+    #def after_sign_in_path_for(resource)
+        #redirect_to profile_path
+    #end
+
+    #protected
+
+    #def after_sign_up_path_for(resource)
+        #redirect_to profile_path
+    #end
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_up_params
@@ -51,9 +63,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # The path used after sign up.
-  # def after_sign_up_path_for(resource)
-  #   super(resource)
-  # end
+
+
+
 
   # The path used after sign up for inactive accounts.
   # def after_inactive_sign_up_path_for(resource)
