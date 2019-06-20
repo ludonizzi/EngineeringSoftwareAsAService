@@ -14,10 +14,8 @@
     <%= yield %>
 
     <% if user_signed_in? %>
-        Logged in as <b><%= current_user.email%></b>
         <br>
         <br>
-        [<%= link_to 'Logout', destroy_user_session_path, :method => :delete%>]
     <% end %>
 
       <%= render 'layouts/footer' %>
