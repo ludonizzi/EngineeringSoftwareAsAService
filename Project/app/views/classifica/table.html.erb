@@ -4,25 +4,23 @@
 <table width="100%" height="50%">
 	<thead>
 		<tr>
-			<th>Giocatore</th><th>Clan</th><th>Vittorie</th><th>Sconfitte</th>
+			<th>Rank</th><th>Giocatore</th><th>Clan</th><th>Vittorie</th><th>Sconfitte</th><th>Ratio</th>
 		</tr>
 	</thead>
 	<tbody>
 		<tr>
-			<th>I</th>
-			<td rowspan="1"></td><td></td><td nowrap></td>
-		</tr>
-		<tr>
-			<th>II</th>
-			<td rowspan="1"></td><td rowspan="1"></td><td rowspan="1"></td>
-		</tr>
-		<tr>
-			<th>III</th>
-                <td rowspan="1"></td><td rowspan="1"></td><td rowspan="1"></td>
-		</tr>
-		<tr>
-			<th>IV</th>
-			<td rowspan ="1"></td><td rowspan ="1"></td><td rowspan ="1"></td>
+			<% @users.each do |user| %>
+			<th><%= user.id %></th>
+			<th><%= user.email %></th>
+			<td rowspan="1"></td><td> <%= user.vittorie %></td><td><%= user.sconfitte %></td><td><%= 
+			if user.sconfitte == 0 
+				user.vittorie/1 
+			
+			else 
+				(((user.vittorie.to_f)/(user.sconfitte.to_f))*100).round / 100.0
+			end%></td></tr>
+
+			<% end %>
 		</tr>
 	</tbody>
 </table>
@@ -37,7 +35,7 @@ table  {
 	align="center"
 }
 td, th {
-	border:3px solid #ddd;
-	padding:40px;
+	border:2px solid #ddd;
+	padding:10px;
 }
 </style>
