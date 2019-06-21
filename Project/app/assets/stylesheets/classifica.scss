@@ -1,0 +1,15 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+body
+{
+	font:10px;
+}
+table  {
+	border-collapse:collapse;
+	align:"center";
+}
+td, th {
+	border:5px solid #ddd;
+	padding:80px;
+}
