@@ -10,6 +10,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
+
+
+
   def create
     super do |resource|
       resource.roles_mask = "2"

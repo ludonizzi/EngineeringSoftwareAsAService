@@ -7,6 +7,10 @@ Rails.application.routes.draw do
 
   resources :profile
 
+  as :user do
+    get 'profile', :to => 'profile#index', :as => :user_root # Rails 3
+  end
+
   root 'static_pages#home'
   get 'regolamento'    => 'static_pages#regolamento'
   get 'infoclan'    => 'static_pages#infoclan'

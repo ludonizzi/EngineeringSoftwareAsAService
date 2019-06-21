@@ -1,0 +1,15 @@
+<html>
+
+<h1> PROFILO   index.html </h1>
+
+Email:  <%= @user.email %>
+<br>
+Password:  <%= @user.password %>
+<br>
+Vittorie:  <%= @user.vittorie %>
+<br>
+Sconfitte:  <%= @user.sconfitte %>
+<br>
+
+<%= link_to "Cambia Impostazioni Utente", edit_user_registration_path %>
+

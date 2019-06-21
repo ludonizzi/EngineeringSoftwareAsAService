@@ -3,7 +3,7 @@ class ProfileController < ApplicationController
     before_action :authenticate_user!
 
     def index
-        @utente = current_user.email
+        @user= current_user
     end
 
     def show
