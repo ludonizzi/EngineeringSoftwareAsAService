@@ -1,3 +1,31 @@
+<div id="profile">
+
+  <h1><%=   @user.email %></h1>
+    <span text-align: center><%= link_to "Cambia Impostazioni Utente", edit_user_registration_path %></span>
+  <dl>
+    <dt>Username:</dt>
+    <dd>Da Inserire </dd>
+    <dt>Data Iscrizione:</dt>
+    <dd><%= @user.created_at.strftime("%B, %e, %Y") %></dd>
+
+    <dt>Status:</dt>
+    <dd>
+      <span class="none">None given</span>
+    </dd>
+    <dt>Vittorie:</dt>
+    <dd><%= @user.vittorie %></dd>
+    <dt>Sconfitte:</dt>
+    <dd><%= @user.sconfitte%></dd>
+  </dl>
+</div>
+
+
+
+
+
+
+
+
 <html>
 
 <h1> PROFILO   index.html </h1>
@@ -11,5 +39,5 @@ Vittorie:  <%= @user.vittorie %>
 Sconfitte:  <%= @user.sconfitte %>
 <br>
 
-<%= link_to "Cambia Impostazioni Utente", edit_user_registration_path %>
+
 

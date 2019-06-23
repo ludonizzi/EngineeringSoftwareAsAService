@@ -75,6 +75,40 @@ html {
 
   }
 
+@mixin box_sizing {
+-moz-box-sizing:
+border-box;
+-webkit-box-sizing: border-box;
+box-sizing:
+border-box;
+}
+
+//form
+
+  input, textarea, select, .uneditable-input {
+border: 1px solid #bbb;
+border: 1px solid #323232;
+width: 100%;
+height: 100%;
+margin-bottom: 15px;
+line-height: 28px;
+@include box_sizing;
+}
+
+
+h3{
+    margin-bottom: 0px;
+    display:inline;}
+
+input {
+height: auto !important;
+}
+
+
+
+
+
+
 
 footer {
 margin-top: 45px;
