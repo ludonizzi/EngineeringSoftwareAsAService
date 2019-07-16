@@ -1,5 +1,8 @@
-<% provide(:title, 'Classifica Generale') %>
+
+
 <h1>Classifica Membri Clan</h1>
+
+<title>Classifica Membri Clan</title>
 
 <table width="100%" height="50%">
 	<thead>
@@ -12,11 +15,11 @@
 			<% @users.each do |user| %>
 			<th><%= user.id %></th>
 			<th><%= user.email %></th>
-			<td> <%= user.vittorie %></td><td><%= user.sconfitte %></td><td><%= 
-			if user.sconfitte == 0 
-				user.vittorie/1 
-			
-			else 
+			<td> <%= user.vittorie %></td><td><%= user.sconfitte %></td><td><%=
+			if user.sconfitte == 0
+				user.vittorie/1
+
+			else
 				(((user.vittorie.to_f)/(user.sconfitte.to_f))*100).round / 100.0
 			end%></td></tr>
 
