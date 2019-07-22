@@ -6,7 +6,7 @@
 
 
     <%= f.label :email %><br/>
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" , class: 'form-control' %>
 
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -15,7 +15,7 @@
 
   <div class="field">
     <%= f.label :current_password %>
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
+    <%= f.password_field :current_password, autocomplete: "current-password" , class: 'form-control'%>
   </div>
 
   <br/><br/>
@@ -29,21 +29,22 @@
     <%= f.label :password %> <% if @minimum_password_length %>
       <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br/>
-    <%= f.password_field :password, autocomplete: "new-password" %>
+    <%= f.password_field :password, autocomplete: "new-password", class: 'form-control' %>
 
   </div>
 
   <div class="field">
     <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control' %>
   </div><br/><br/>
 
-
+<div class="field">
   <h3>Nuovo Status</h3>
    <br/><br/>
   <%= f.label :status %>
   <i>(lascia vuoto se non vuoi cambiarlo)</i>
-    <%= text_field_tag(:status) %> <br/>
+    <%= f.text_field(:status, class: 'form-control') %> <br/>
+    </div>
   <br/><br/>
   <br/><br/><br/>
 
