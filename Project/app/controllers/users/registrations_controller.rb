@@ -15,7 +15,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def create
     super do |resource|
-      resource.roles_mask = "2"
+      resource.roles_mask = "1"
     end
   end
 

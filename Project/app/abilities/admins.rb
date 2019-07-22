@@ -1,4 +1,4 @@
-Canard::Abilities.for(:unregistered) do
+Canard::Abilities.for(:admin) do
   # Define abilities for the user role here. For example:
   #
   #   if user.admin?
