@@ -7,7 +7,9 @@ class ApplicationController < ActionController::Base
         @current_user |= User.where(:id => session[:id])
     end
 
-
+    def after_update_path_for(current_user)
+        profile_path(current_user.id)
+    end
 
     def after_sign_up_path_for(current_user)
         profile_path(current_user.id)

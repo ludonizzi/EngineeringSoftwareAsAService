@@ -1,43 +1,51 @@
 <div id="profile">
 <title>Profilo</title>
   <h1><%=   @user.email %></h1>
-    <span text-align: center><%= link_to "Cambia Impostazioni Utente", edit_user_registration_path %></span>
+
   <dl>
+    <dt>Email:</dt>
+      <dd><%= @user.email %>:</dd>
     <dt>Username:</dt>
     <dd>Da Inserire </dd>
     <dt>Data Iscrizione:</dt>
     <dd><%= @user.created_at.strftime("%B, %e, %Y") %></dd>
 
     <dt>Status:</dt>
-    <dd>
-      <span class="none">None given</span>
-    </dd>
+    <% if (@user.status.blank?) %>
+          <span class="none">None given</span>
+    <%else %>
+    <dd><%= @user.status %></dd>
+    <% end %>
+
+  </dl>
+
+     <span text-align: center><%= link_to "Cambia Impostazioni Utente", edit_user_registration_path %></span>
+</div>
+
+
+<footer class="footer">
+
+
+<h1> Inventario</h1>
+
+<div class="center jumbotron">
+
     <dt>Vittorie:</dt>
     <dd><%= @user.vittorie %></dd>
     <dt>Sconfitte:</dt>
     <dd><%= @user.sconfitte%></dd>
-  </dl>
+
 </div>
 
+<footer class="footer">
 
+<h1> Stats </h1>
 
+<div class="center jumbotron">
 
+    <dt>Vittorie:</dt>
+    <dd><%= @user.vittorie %></dd>
+    <dt>Sconfitte:</dt>
+    <dd><%= @user.sconfitte%></dd>
 
-
-
-
-<html>
-
-<h1> PROFILO   show.html </h1>
-
-Email:  <%= @user.email %>
-<br>
-Password:  <%= @user.password %>
-<br>
-Vittorie:  <%= @user.vittorie %>
-<br>
-Sconfitte:  <%= @user.sconfitte %>
-<br>
-
-
-
+</div>
