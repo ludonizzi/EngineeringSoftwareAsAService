@@ -12,9 +12,9 @@
 	</thead>
 	<tbody>
 		<tr>
-			<% @users.each do |user| %>
-			<th><%= user.id %></th>
-			<th><%= user.email %></th>
+			<% @users.each_with_index do |user,index| %>
+			<th><%= index+1%></th>
+			<th><%= user.username %></th>
 			<td> <%= user.vittorie %></td><td><%= user.sconfitte %></td><td><%=
 			if user.sconfitte == 0
 				user.vittorie/1

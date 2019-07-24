@@ -9,5 +9,5 @@ class User < ApplicationRecord
     #Canard Roles
     acts_as_user :roles => [:user, :chieftain,  :admin ]
 
-
+  
 end
