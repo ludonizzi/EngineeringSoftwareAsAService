@@ -5,7 +5,6 @@ class ProfileController < ApplicationController
     def show
         id = params[:id]
         @user= current_user
-
     end
 
     def index
