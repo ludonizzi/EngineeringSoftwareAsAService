@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_23_141831) do
+ActiveRecord::Schema.define(version: 2019_07_27_155316) do
 
   create_table "clan", force: :cascade do |t|
     t.string "nome"
@@ -55,6 +55,8 @@ ActiveRecord::Schema.define(version: 2019_07_23_141831) do
     t.integer "attaccospec", default: 0
     t.integer "difesaspec", default: 0
     t.integer "livello", default: 0
+    t.string "img_profile"
+    t.integer "clan"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

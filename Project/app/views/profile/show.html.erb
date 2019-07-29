@@ -7,7 +7,7 @@
 <div id = "content">
 
 
-<%= image_tag("diventare-un-guerriero.jpg", :alt => "logo")%>
+<%= image_tag(@user.img_profile, :style => "display: block; margin: 0px auto; width: 300px; height: 300px; cursor: pointer;", :alt => "logo")%>
 
 
 
@@ -29,7 +29,15 @@
     <%= @user.status %></dd>
     <% end %>
 
-    <dd><b>Clan: </b> &nbsp;&nbsp;&nbsp;&nbsp;Da Inserire</dd>
+    <dd><b>Clan: </b> &nbsp;&nbsp;&nbsp;&nbsp;
+    <% if (@user.clan==1) %>
+            <span class="none">Guerriero</span>
+    <% end %>
+    <% if (@user.clan==2) %>
+            <span class="none">Elfo</span>
+    <%else%>
+            <span class="none">Orco</span>
+    <% end %>
 
     <dd><b>Status Clan:</b> &nbsp;&nbsp;&nbsp;&nbsp; Da Inserire</dd>
 

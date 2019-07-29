@@ -19,8 +19,16 @@ html {
     resize: vertical;
   }
 
+  .hide{
+    display:none;
+  }
+
   .center {
     text-align: center;
+  }
+
+  .space{
+    margin-bottom: 5%;
   }
 
   .center h1 {
@@ -151,7 +159,49 @@ list-style: none;
 }
 
 footer ul li {
-font-size: 15px;
-float: left;
-margin-left: 15px;
+    font-size: 15px;
+    float: left;
+    margin-left: 15px;
+}
+
+.img-clan{
+    width:      100 px;
+    height:     100 px;
+}
+
+.war{
+    .war1{
+
+    }
+    .war2{
+
+    }
+    .war3{
+
+    }
+}
+
+.elf{
+    .elf1{
+
+    }
+    .elf2{
+
+    }
+    .elf3{
+
+    }
+}
+
+
+.ogre{
+    .ogre1{
+
+    }
+    .ogre2{
+
+    }
+    .ogre3{
+
+    }
 }
