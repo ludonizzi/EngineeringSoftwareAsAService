@@ -35,6 +35,7 @@
     <% end %>
     <% if (@user.clan==2) %>
             <span class="none">Elfo</span>
+
     <%else%>
             <span class="none">Orco</span>
     <% end %>
@@ -79,9 +80,9 @@
 
 <div class="center jumbotron">
 
-    <dd><b>Vittorie: </b>&nbsp;&nbsp;<%= @user.vittorie %></dd>
+    <dd><b>Vittorie: </b>&nbsp;&nbsp;<%= current_user.vittorie %></dd>
 
-    <dd><b>Sconfitte:</b>&nbsp;&nbsp;<%= @user.sconfitte%></dd>
+    <dd><b>Sconfitte:</b>&nbsp;&nbsp;<%= current_user.sconfitte%></dd>
 
     <dd><b>Rateo:</b>&nbsp;&nbsp;
     <%=if @user.sconfitte == 0

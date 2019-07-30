@@ -1,6 +1,10 @@
 
 
-<h1>Classifica Membri Clan</h1>
+<% if(current_user.clan == 1) %><h1>Classifica Guerrieri</h1> <% end %>
+
+<% if(current_user.clan == 2) %><h1>Classifica Elfi</h1> <% end %>
+
+<% if(current_user.clan == 3) %><h1>Classifica Orchi</h1> <% end %>
 
 <title>Classifica Membri Clan</title>
 
@@ -13,16 +17,17 @@
 	<tbody>
 		<tr>
 			<% @users.each_with_index do |user,index| %>
-			<th><%= index+1%></th>
-			<th><%= user.username %></th>
-			<td> <%= user.vittorie %></td><td><%= user.sconfitte %></td><td><%=
-			if user.sconfitte == 0
-				user.vittorie/1
+			<% if (user.clan == current_user.clan) %>
+				<th><%= index+1%></th>
+				<th><%= user.username %></th>
+				<td> <%= user.vittorie %></td><td><%= user.sconfitte %></td><td><%=
+				if user.sconfitte == 0
+					user.vittorie/1
 
-			else
-				(((user.vittorie.to_f)/(user.sconfitte.to_f))*100).round / 100.0
-			end%></td></tr>
-
+				else
+					(((user.vittorie.to_f)/(user.sconfitte.to_f))*100).round / 100.0
+				end%></td></tr>
+			<% end %>
 			<% end %>
 		</tr>
 	</tbody>

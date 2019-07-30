@@ -12,15 +12,41 @@
 	<tbody>
 		<tr>
 			<% @users.each_with_index do |user,index| %>
-			<th><%=  index+1  %></th>
-			<th><%= user.username %></th>
-			<td rowspan="1"></td><td> <%= user.vittorie %></td><td><%= user.sconfitte %></td><td><%=
+			<% if (user.clan ==1) %>
+				<th><%=  index+1  %></th>
+				<th><%= link_to user.username, profile_path(user.id) %></th>
+				<td rowspan="1">Guerriero</td><td> <%= user.vittorie %></td><td><%= user.sconfitte %></td><td><%=
 			if user.sconfitte == 0
 				user.vittorie/1
 
 			else
 				(((user.vittorie.to_f)/(user.sconfitte.to_f))*100).round / 100.0
 			end%></td></tr>
+			<% end %>
+
+			<% if (user.clan ==2) %>
+				<th><%=  index+1  %></th>
+				<th><%= link_to user.username, profile_path(user.id) %></th>
+				<td rowspan="1">Elfo</td><td> <%= user.vittorie %></td><td><%= user.sconfitte %></td><td><%=
+			if user.sconfitte == 0
+				user.vittorie/1
+
+			else
+				(((user.vittorie.to_f)/(user.sconfitte.to_f))*100).round / 100.0
+			end%></td></tr>
+			<% end %>
+
+			<% if (user.clan ==3) %>
+				<th><%=  index+1  %></th>
+				<th><%= link_to user.username, profile_path(user.id) %></th>
+				<td rowspan="1">Orco</td><td> <%= user.vittorie %></td><td><%= user.sconfitte %></td><td><%=
+			if user.sconfitte == 0
+				user.vittorie/1
+
+			else
+				(((user.vittorie.to_f)/(user.sconfitte.to_f))*100).round / 100.0
+			end%></td></tr>
+			<% end %>
 
 			<% end %>
 		</tr>
