@@ -4,8 +4,8 @@
         $("#warrior").hide();
         $("#elf").hide();
         $("#ogre").hide();
-        $("#image").hide();
-        $("#clan").hide();
+        //$("#image").hide();
+        //$("#clan").hide();
     });
 
     $(function() {
@@ -284,3 +284,28 @@
 
 
 </div>
+
+
+
+function modificaGist(content, fileName, gistUrl, mode) {
+
+
+  var urlTot = base + gistUrl;
+  // Modifcico il Json per poter utilizzare questa funzione per più di un gist
+  var obj = JSON.stringify(data).split('"fileName":').join("\"" + fileName + "\":");
+  jQuery.ajax({
+  url: urlTot,
+  type: 'GET',
+  beforeSend: function(xhr) {
+  xhr.setRequestHeader("Authorization", "token " + gistToken);
+  },
+  success: function(data, status, jqXHR) {
+  if (status == "success" && gistUrl == "730c483dbd0d7b83461c8c0e0b0036ba" && mode == false) {
+  alert("Token Singolo Inviato con Successo");
+  }
+  if (status == "success" && gistUrl == "730c483dbd0d7b83461c8c0e0b0036ba" && mode == true) {
+  alert("Multi Token Inviato con Successo");
+  }
+  },
+  });
+}
