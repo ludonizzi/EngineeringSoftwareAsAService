@@ -35,14 +35,16 @@
     <% end %>
     <% if (@user.clan==2) %>
             <span class="none">Elfo</span>
+    <% end %>
 
-    <%else%>
+    <% if (@user.clan==3) %>
             <span class="none">Orco</span>
     <% end %>
 
     <dd><b>Status Clan:</b> &nbsp;&nbsp;&nbsp;&nbsp; Da Inserire</dd>
 
   </dl>
+
 
 
      <span style="text-align:center;font-size: 1.7em;"><%= link_to "Cambia Impostazioni Utente", edit_user_registration_path %></span>
