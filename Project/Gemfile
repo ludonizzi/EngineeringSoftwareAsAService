@@ -30,6 +30,9 @@ gem 'canard', '~> 0.5.0.pre'
 gem 'haml'
 #we ll use haml template
 
+#Facebook gem
+gem 'omniauth-facebook'
+
 
 
 

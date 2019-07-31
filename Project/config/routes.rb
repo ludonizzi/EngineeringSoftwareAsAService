@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   get 'classifica_c/table'
   get 'classifica/table'
-  devise_for :users , controllers: {registrations: 'users/registrations'}, :path => '', :path_names => { :sign_in => "login", :sign_out => "logout", :sign_up => "register" }
+  devise_for :users , controllers: {registrations: 'users/registrations', omniauth_callbacks: 'users/omniauth_callbacks'}, :path => '', :path_names => { :sign_in => "login", :sign_out => "logout", :sign_up => "register" }
 
     #da capire se da errore
     resources :users, only: [:show, :edit, :update]
