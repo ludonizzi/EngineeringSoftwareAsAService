@@ -19,7 +19,7 @@
 			<% @users.each_with_index do |user,index| %>
 			<% if (user.clan == current_user.clan) %>
 				<th><%= index+1%></th>
-				<th><%= user.username %></th>
+				<th><%= link_to user.username, profile_path(user.id) %></th>
 				<td> <%= user.vittorie %></td><td><%= user.sconfitte %></td><td><%=
 				if user.sconfitte == 0
 					user.vittorie/1
@@ -46,4 +46,9 @@ td, th {
 	border:2px solid #ddd;
 	padding:10px;
 }
+
+tr:hover {
+    background-color: #ebebeb;
+}
+
 </style>

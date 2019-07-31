@@ -6,4 +6,5 @@ class ClassificaController < ApplicationController
      user.sconfitte = 5
     end
   end
+
 end
