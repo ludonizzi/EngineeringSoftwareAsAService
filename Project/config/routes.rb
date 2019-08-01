@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 
+  get 'infoc/infoclan'
   get 'classifica_c/table'
   get 'classifica/table'
   devise_for :users , controllers: {registrations: 'users/registrations', omniauth_callbacks: 'users/omniauth_callbacks'}, :path => '', :path_names => { :sign_in => "login", :sign_out => "logout", :sign_up => "register" }
@@ -17,6 +18,7 @@ Rails.application.routes.draw do
   root 'static_pages#home'
   get 'regolamento'    => 'static_pages#regolamento'
   get 'infoclan'    => 'static_pages#infoclan'
+  get 'infoc' => 'infoc#infoclan'
   get 'aboutapp'    => 'static_pages#aboutapp'
   get 'contatti'    => 'static_pages#contatti'
   get 'classifica' => 'classifica#table'
