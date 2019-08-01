@@ -31,6 +31,7 @@ gem 'haml'
 #we ll use haml template
 
 #Facebook gem
+gem 'omniauth'
 gem 'omniauth-facebook'
 
 
