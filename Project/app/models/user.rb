@@ -12,12 +12,13 @@ class User < ApplicationRecord
 
   def self.from_omniauth(auth)
   where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+    
     user.nome = auth.info.first_name
     user.cognome = auth.info.last_name
     user.email = auth.info.email
     # If you are using confirmable and the provider(s) you use validate emails, 
     # uncomment the line below to skip the confirmation emails.
-    # user.skip_confirmation!
+    #user.skip_confirmation!
   end
 end
 

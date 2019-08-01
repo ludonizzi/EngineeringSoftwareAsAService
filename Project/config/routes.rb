@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
   as :user do
     get 'profile', :to => 'profile#index', :as => :user_root # Rails 3
+    get 'new_fb', :to => 'devise/registrations#new_fb', :as =>:user_fb
   end
 
   root 'static_pages#home'
