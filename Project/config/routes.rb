@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get 'infoc/infoclan'
   get 'classifica_c/table'
   get 'classifica/table'
-  devise_for :users , controllers: {registrations: 'users/registrations', omniauth_callbacks: 'users/omniauth_callbacks'}, :path => '', :path_names => { :sign_in => "login", :sign_out => "logout", :sign_up => "register" }
+  devise_for :users , controllers: {registrations: 'users/registrations', omniauth_callbacks: 'users/omniauth_callbacks'}, :path => '', :path_names => { :sign_in => "login", :sign_out => "logout", :sign_up => "register"}
 
     #da capire se da errore
     resources :users, only: [:show, :edit, :update]
@@ -13,7 +13,6 @@ Rails.application.routes.draw do
 
   as :user do
     get 'profile', :to => 'profile#index', :as => :user_root # Rails 3
-    get 'new_fb', :to => 'devise/registrations#new_fb', :as =>:user_fb
   end
 
   root 'static_pages#home'
