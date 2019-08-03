@@ -16,6 +16,7 @@ class User < ApplicationRecord
     user.nome = auth.info.first_name
     user.cognome = auth.info.last_name
     user.email = auth.info.email
+    user.img_profile = 'guerriero.jpg'
     user.clan = 1
     user.password = Devise.friendly_token[0,20]
     user.save!
