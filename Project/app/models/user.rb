@@ -12,9 +12,13 @@ class User < ApplicationRecord
 
   def self.from_omniauth(auth)
   where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
-    user.nome = auth.info.name
+    user.username = auth.info.name
+    user.nome = auth.info.first_name
+    user.cognome = auth.info.last_name
     user.email = auth.info.email
-    user.img_profile = auth.info.image
+    user.clan = 1
+    user.password = Devise.friendly_token[0,20]
+    user.save!
     # If you are using confirmable and the provider(s) you use validate emails, 
     # uncomment the line below to skip the confirmation emails.
     #user.skip_confirmation!
