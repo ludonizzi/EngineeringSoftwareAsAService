@@ -1,0 +1,93 @@
+<div id="profile">
+<title>Profilo</title>
+
+
+<h1>Profilo di <%=   @user.username %></h1>
+
+<div id = "content">
+
+
+  <dl>
+  <dd> <b>Nome:</b> &nbsp;&nbsp;&nbsp;&nbsp; <%=   @user.nome %></dd>
+
+    <dd><b>Cognome: </b> &nbsp;&nbsp;&nbsp;&nbsp; <%=   @user.cognome %></dd>
+
+    <dd><b>Email: </b> &nbsp;&nbsp;&nbsp;&nbsp;<%= @user.email %></dd>
+
+    <dd><b>Username:</b> &nbsp;&nbsp;&nbsp;&nbsp; <%=   @user.username %></dd>
+
+    <dd><b>Data Iscrizione:</b> &nbsp;&nbsp;&nbsp;&nbsp;<%= @user.created_at.strftime("%B, %e, %Y") %></dd>
+
+    <dd><b>Status Personale:</b> &nbsp;&nbsp;&nbsp;&nbsp;
+    <% if (@user.status.blank?) %>
+           <span class="none">Non Inserito</span>
+    <%else %>
+    <%= @user.status %></dd>
+    <% end %>
+
+    <dd><b>Clan: </b> &nbsp;&nbsp;&nbsp;&nbsp;
+    <% if (@user.clan==1) %>
+            <span class="none">Guerriero</span>
+    <% end %>
+    <% if (@user.clan==2) %>
+            <span class="none">Elfo</span>
+    <% end %>
+
+    <% if (@user.clan==3) %>
+            <span class="none">Orco</span>
+    <% end %>
+
+    <dd><b>Status Clan:</b> &nbsp;&nbsp;&nbsp;&nbsp; Da Inserire</dd>
+
+  </dl>
+
+
+
+     <span style="text-align:center;font-size: 1.7em;"><%= link_to "Cambia Impostazioni Utente", edit_user_registration_path %></span>
+     </div>
+
+
+
+  <br/><br/><br/>
+  <br/>
+</div>
+
+
+<footer class="footer">
+
+
+<h1> Inventario</h1>
+
+<div class="center jumbotron">
+
+    <dd><b>Livello: </b>&nbsp;&nbsp;<%= @user.livello %></dd>
+
+    <dd><b>Attacco: </b>&nbsp;&nbsp;<%= @user.attacco%></dd>
+
+    <dd><b>Attacco Speciale:</b>&nbsp;&nbsp;<%= @user.attaccospec%></dd>
+
+    <dd><b>Difesa: </b>&nbsp;&nbsp;<%= @user.difesa %></dd>
+
+    <dd><b>Difesa Speciale:</b>&nbsp;&nbsp;<%= @user.difesaspec %></dd>
+
+</div>
+
+<footer class="footer">
+
+<h1> Statistiche </h1>
+
+<div class="center jumbotron">
+
+    <dd><b>Vittorie: </b>&nbsp;&nbsp;<%= current_user.vittorie %></dd>
+
+    <dd><b>Sconfitte:</b>&nbsp;&nbsp;<%= current_user.sconfitte%></dd>
+
+    <dd><b>Rateo:</b>&nbsp;&nbsp;
+    <%=if @user.sconfitte == 0
+        @user.vittorie/1
+    else
+        (((@user.vittorie.to_f)/(@user.sconfitte.to_f))*100).round / 100.0
+        end%>
+
+
+</div>
