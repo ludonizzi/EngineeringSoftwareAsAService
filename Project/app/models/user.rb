@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+
+
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -20,11 +23,11 @@ class User < ApplicationRecord
     user.clan = 1
     user.password = Devise.friendly_token[0,20]
     user.save!
-    # If you are using confirmable and the provider(s) you use validate emails, 
+    # If you are using confirmable and the provider(s) you use validate emails,
     # uncomment the line below to skip the confirmation emails.
     #user.skip_confirmation!
   end
 end
 
-  
+
 end
