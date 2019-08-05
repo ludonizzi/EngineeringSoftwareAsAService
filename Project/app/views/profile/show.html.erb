@@ -10,7 +10,6 @@
 <%= image_tag(@user.img_profile, :style => "display: block; margin: 0px auto; width: 300px; height: 300px; cursor: pointer;", :alt => "logo")%>
 
 
-
   <dl>
   <dd> <b>Nome:</b> &nbsp;&nbsp;&nbsp;&nbsp; <%=   @user.nome %></dd>
 
@@ -46,8 +45,11 @@
   </dl>
 
 
-
+<% if @var == current_user.id %>
      <span style="text-align:center;font-size: 1.7em;"><%= link_to "Cambia Impostazioni Utente", edit_user_registration_path %></span>
+
+<% end %>
+
      </div>
 
 

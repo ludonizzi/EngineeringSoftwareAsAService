@@ -4,9 +4,11 @@ class ProfileController < ApplicationController
 
     def show
         id = params[:id]
-        @user= current_user
-        @user.vittorie = @user.id
-        @user.sconfitte = 5
+        @user= User.find(id)
+
+        @var = @user.id
+        current_user.vittorie = @user.id
+        current_user.sconfitte = 5
     end
 
     def index
