@@ -23,5 +23,5 @@ Rails.application.routes.draw do
   get 'contatti'    => 'static_pages#contatti'
   get 'classifica' => 'classifica#table'
   get 'classifica_c' => 'classifica_c#table'
-  get 'combatti' => 'combatti#precomb'
+  get 'combatti' => 'combattimento#combatti'
 end

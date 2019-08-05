@@ -7,6 +7,10 @@
 <div id = "content">
 
 
+<%= image_tag(@user.img_profile, :style => "display: block; margin: 0px auto; width: 300px; height: 300px; cursor: pointer;", :alt => "logo")%>
+
+
+
   <dl>
   <dd> <b>Nome:</b> &nbsp;&nbsp;&nbsp;&nbsp; <%=   @user.nome %></dd>
 
