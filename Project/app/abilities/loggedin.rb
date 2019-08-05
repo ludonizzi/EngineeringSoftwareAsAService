@@ -1,4 +1,8 @@
-Canard::Abilities.for(:user) do
+Canard::Abilities.for(:logged_in) do
+
+    can :read, :all
+
+
   # Define abilities for the user role here. For example:
   #
   #   if user.admin?

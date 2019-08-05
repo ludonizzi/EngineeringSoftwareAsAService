@@ -11,7 +11,7 @@ class User < ApplicationRecord
 
 
     #Canard Roles
-    acts_as_user :roles => [:user, :chieftain,  :admin ]
+    acts_as_user :roles => [:loggedin, :chieftain,  :admin ]
 
   def self.from_omniauth(auth)
   where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
