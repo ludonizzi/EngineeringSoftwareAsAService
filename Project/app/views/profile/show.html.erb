@@ -89,10 +89,10 @@
     <dd><b>Sconfitte:</b>&nbsp;&nbsp;<%= current_user.sconfitte%></dd>
 
     <dd><b>Rateo:</b>&nbsp;&nbsp;
-    <%=if @user.sconfitte == 0
-        @user.vittorie/1
+    <%=if current_user.sconfitte == 0
+        current_user.vittorie/1
     else
-        (((@user.vittorie.to_f)/(@user.sconfitte.to_f))*100).round / 100.0
+        (((current_user.vittorie.to_f)/(current_user.sconfitte.to_f))*100).round / 100.0
         end%>
 
 
