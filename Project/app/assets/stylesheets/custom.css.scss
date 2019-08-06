@@ -94,8 +94,8 @@ border-box;
 //form
 
   input, textarea, select, .uneditable-input {
-border: 1px solid #bbb;
-border: 1px solid #323232;
+border: 0px solid #bbb;
+border: 0px solid #323232;
 width: 100%;
 height: 100%;
 margin-bottom: 15px;
@@ -204,4 +204,12 @@ footer ul li {
     .ogre3{
 
     }
+.table-borderless > tbody > tr > td,
+.table-borderless > tbody > tr > th,
+.table-borderless > tfoot > tr > td,
+.table-borderless > tfoot > tr > th,
+.table-borderless > thead > tr > td,
+.table-borderless > thead > tr > th {
+    border: none;
+}
 }

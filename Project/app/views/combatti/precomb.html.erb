@@ -1,1 +1,88 @@
-<h2>è uscito modelli -cit.</h2>
+<title>COMBATTI</title>
+<center><H1>È ORA DI COMBATTERE</H1></center>
+
+</br>
+<table>
+<tr><td>
+
+<FONT SIZE=+2><%=@user.username%> -     <% if (@user.clan==1) %>
+            <span class="none">Guerriero</span>
+    <% end %>
+    <% if (@user.clan==2) %>
+            <span class="none">Elfo</span>
+    <% end %>
+
+    <% if (@user.clan==3) %>
+            <span class="none">Orco</span>
+    <% end %>
+</FONT>
+</br>
+<TABLE class="table table-borderless" COLS=1 WIDTH="20%">
+        <TR><TD>Livello: </b>&nbsp;&nbsp;<%= @user.livello %></TD></TR>
+	<TR><TD>Attacco: </b>&nbsp;&nbsp;<%= @user.attacco%></TD></TR>
+	<TR><TD>Attacco Speciale:</b>&nbsp;&nbsp;<%= @user.attaccospec%></TD></TR>
+	<TR><TD>Difesa: </b>&nbsp;&nbsp;<%= @user.difesa %></TD></TR>
+	<TR><TD>Difesa Speciale:</b>&nbsp;&nbsp;<%= @user.difesaspec %></TD></TR>
+      </TABLE>
+
+</br>
+<FONT SIZE=+2>Equipaggiamentro</FONT>
+</br>
+
+<table class="table table-borderless" width = 40%>
+<tr>
+<td><center>Arma d'attacco</center></td>
+<td><form>
+<select name="attacco" >
+<option value="att1" selected="selected">Spada </option>
+<option value="att2">Arco </option>
+<option value="att3">Mazza chiodata </option>
+</select>
+</form></td>
+</tr>
+
+<tr>
+<td><center>Arma di difesa</center></td>
+<td><form>
+<select name="difesa" >
+<option value="def1" selected="selected">Scudo di ferro</option>
+<option value="def2">Scudo di legno</option>
+<option value="def3">Doppia arma</option>
+</select>
+</form></td>
+</tr>
+
+<tr>
+<td><center>Armatura</center></td>
+<td><form>
+<select name="armatura" >
+<option value="arm1" selected="selected">Cotta di maglia</option>
+<option value="arm2">Completo del viandante</option>
+<option value="arm3">Armatura di diamante</option>
+</select>
+</form></td>
+</tr>
+</table>
+
+</td>
+<td width=50%><h1> VS </h1></td>
+<td><button type="button" class= "btn btn-primary btn-lg" role="button">Cerca Avversario</button></td>
+</tr>
+</table>
+
+<style>
+body
+{
+	font:10px
+}
+table  {
+	border-collapse:collapse
+	align="center"
+}
+td, th {
+	border:0px;
+	padding:10px;
+}
+
+</style>
+
