@@ -1,58 +1,170 @@
+<% if current_user.roles_mask == 4 %>
+	<h1>Classifica generale</h1>
 
-<h1>Classifica generale</h1>
+	<title>Classifica Generale</title>
 
-<title>Classifica Generale</title>
+	<table width="100%" height="50%">
+		<thead>
+			<tr>
+				<th>Rank</th><th>Giocatore</th><th>Clan</th><th>Vittorie</th><th>Sconfitte</th><th>Ratio</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<% @users.each_with_index do |user,index| %>
+				<% if (user.clan ==1) %>
+					<th><%=  index+1  %></th>
+					<th><%= link_to user.username, profile_path(user.id) %></th>
+					
+					<td rowspan="1">Guerriero</td><td> <%= user.vittorie %></td><td><%= user.sconfitte %></td><td><%=
+				if user.sconfitte == 0
+					user.vittorie/1
 
-<table width="100%" height="50%">
-	<thead>
-		<tr>
-			<th>Rank</th><th>Giocatore</th><th>Clan</th><th>Vittorie</th><th>Sconfitte</th><th>Ratio</th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr>
-			<% @users.each_with_index do |user,index| %>
-			<% if (user.clan ==1) %>
-				<th><%=  index+1  %></th>
-				<th><%= user.username %></th>
-				
-				<td rowspan="1">Guerriero</td><td> <%= user.vittorie %></td><td><%= user.sconfitte %></td><td><%=
-			if user.sconfitte == 0
-				user.vittorie/1
+				else
+					(((user.vittorie.to_f)/(user.sconfitte.to_f))*100).round / 100.0
+				end%></td></tr>
+				<% end %>
 
-			else
-				(((user.vittorie.to_f)/(user.sconfitte.to_f))*100).round / 100.0
-			end%></td></tr>
-			<% end %>
+				<% if (user.clan ==2) %>
+					<th><%=  index+1  %></th>
+					<th><%= link_to user.username, profile_path(user.id) %></th>
+					<td rowspan="1">Elfo</td><td> <%= user.vittorie %></td><td><%= user.sconfitte %></td><td><%=
+				if user.sconfitte == 0
+					user.vittorie/1
 
-			<% if (user.clan ==2) %>
-				<th><%=  index+1  %></th>
-				<th><%= user.username %></th>
-				<td rowspan="1">Elfo</td><td> <%= user.vittorie %></td><td><%= user.sconfitte %></td><td><%=
-			if user.sconfitte == 0
-				user.vittorie/1
+				else
+					(((user.vittorie.to_f)/(user.sconfitte.to_f))*100).round / 100.0
+				end%></td></tr>
+				<% end %>
 
-			else
-				(((user.vittorie.to_f)/(user.sconfitte.to_f))*100).round / 100.0
-			end%></td></tr>
-			<% end %>
+				<% if (user.clan ==3) %>
+					<th><%=  index+1  %></th>
+					<th><%= link_to user.username, profile_path(user.id) %></th>
+					<td rowspan="1">Orco</td><td> <%= user.vittorie %></td><td><%= user.sconfitte %></td><td><%=
+				if user.sconfitte == 0
+					user.vittorie/1
 
-			<% if (user.clan ==3) %>
-				<th><%=  index+1  %></th>
-				<th><%= user.username %></th>
-				<td rowspan="1">Orco</td><td> <%= user.vittorie %></td><td><%= user.sconfitte %></td><td><%=
-			if user.sconfitte == 0
-				user.vittorie/1
+				else
+					(((user.vittorie.to_f)/(user.sconfitte.to_f))*100).round / 100.0
+				end%></td></tr>
+				<% end %>
 
-			else
-				(((user.vittorie.to_f)/(user.sconfitte.to_f))*100).round / 100.0
-			end%></td></tr>
-			<% end %>
+				<% end %>
+			</tr>
+		</tbody>
+	</table>
+<% elsif current_user.roles_mask == 2 %>
+	<h1>Classifica generale</h1>
 
-			<% end %>
-		</tr>
-	</tbody>
-</table>
+	<title>Classifica Generale</title>
+
+	<table width="100%" height="50%">
+		<thead>
+			<tr>
+				<th>Rank</th><th>Giocatore</th><th>Clan</th><th>Vittorie</th><th>Sconfitte</th><th>Ratio</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<% @users.each_with_index do |user,index| %>
+				<% if (user.clan ==1) %>
+					<th><%=  index+1  %></th>
+					<th><%= link_to user.username, profile_path(user.id) %></th>
+					
+					<td rowspan="1">Guerriero</td><td> <%= user.vittorie %></td><td><%= user.sconfitte %></td><td><%=
+				if user.sconfitte == 0
+					user.vittorie/1
+
+				else
+					(((user.vittorie.to_f)/(user.sconfitte.to_f))*100).round / 100.0
+				end%></td></tr>
+				<% end %>
+
+				<% if (user.clan ==2) %>
+					<th><%=  index+1  %></th>
+					<th><%= link_to user.username, profile_path(user.id) %></th>
+					<td rowspan="1">Elfo</td><td> <%= user.vittorie %></td><td><%= user.sconfitte %></td><td><%=
+				if user.sconfitte == 0
+					user.vittorie/1
+
+				else
+					(((user.vittorie.to_f)/(user.sconfitte.to_f))*100).round / 100.0
+				end%></td></tr>
+				<% end %>
+
+				<% if (user.clan ==3) %>
+					<th><%=  index+1  %></th>
+					<th><%= link_to user.username, profile_path(user.id) %></th>
+					<td rowspan="1">Orco</td><td> <%= user.vittorie %></td><td><%= user.sconfitte %></td><td><%=
+				if user.sconfitte == 0
+					user.vittorie/1
+
+				else
+					(((user.vittorie.to_f)/(user.sconfitte.to_f))*100).round / 100.0
+				end%></td></tr>
+				<% end %>
+
+				<% end %>
+			</tr>
+		</tbody>
+	</table>
+<% else %>
+	<h1>Classifica generale</h1>
+
+	<title>Classifica Generale</title>
+
+	<table width="100%" height="50%">
+		<thead>
+			<tr>
+				<th>Rank</th><th>Giocatore</th><th>Clan</th><th>Vittorie</th><th>Sconfitte</th><th>Ratio</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<% @users.each_with_index do |user,index| %>
+				<% if (user.clan ==1) %>
+					<th><%=  index+1  %></th>
+					<th><%= user.username %></th>
+					
+					<td rowspan="1">Guerriero</td><td> <%= user.vittorie %></td><td><%= user.sconfitte %></td><td><%=
+				if user.sconfitte == 0
+					user.vittorie/1
+
+				else
+					(((user.vittorie.to_f)/(user.sconfitte.to_f))*100).round / 100.0
+				end%></td></tr>
+				<% end %>
+
+				<% if (user.clan ==2) %>
+					<th><%=  index+1  %></th>
+					<th><%= user.username %></th>
+					<td rowspan="1">Elfo</td><td> <%= user.vittorie %></td><td><%= user.sconfitte %></td><td><%=
+				if user.sconfitte == 0
+					user.vittorie/1
+
+				else
+					(((user.vittorie.to_f)/(user.sconfitte.to_f))*100).round / 100.0
+				end%></td></tr>
+				<% end %>
+
+				<% if (user.clan ==3) %>
+					<th><%=  index+1  %></th>
+					<th><%= user.username %></th>
+					<td rowspan="1">Orco</td><td> <%= user.vittorie %></td><td><%= user.sconfitte %></td><td><%=
+				if user.sconfitte == 0
+					user.vittorie/1
+
+				else
+					(((user.vittorie.to_f)/(user.sconfitte.to_f))*100).round / 100.0
+				end%></td></tr>
+				<% end %>
+
+				<% end %>
+			</tr>
+		</tbody>
+	</table>
+
+<% end %>
 
 <style>
 body

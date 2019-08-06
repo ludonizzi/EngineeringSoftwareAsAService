@@ -13,7 +13,9 @@
     </a>
         <ul class="dropdown-menu">
         <li><%= link_to "Classifica Generale", classifica_path %></li>
-        <li><%= link_to "Classifica Membri Clan", classifica_c_path %> </li>
+        <li><%= link_to "Classifica Guerrieri", classifica_c_admin_path(id:1) %> </li>
+        <li><%= link_to "Classifica Efi", classifica_c_admin_path(id:2)  %> </li>
+        <li><%= link_to "Classifica Orchi", classifica_c_admin_path(id:3)  %> </li>
         </ul>
     </li>
 

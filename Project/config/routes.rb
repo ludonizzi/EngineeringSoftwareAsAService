@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 
+  get 'classifica_c_admin/table_admin'
   get 'infoc/infoclan'
   get 'classifica_c/table'
   get 'classifica/table'
@@ -16,6 +17,8 @@ Rails.application.routes.draw do
     get 'profile', :to => 'profile#index', :as => :user_root # Rails 3
   end
 
+  
+
   root 'static_pages#home'
   get 'regolamento'    => 'static_pages#regolamento'
   get 'infoclan'    => 'static_pages#infoclan'
@@ -24,5 +27,6 @@ Rails.application.routes.draw do
   get 'contatti'    => 'static_pages#contatti'
   get 'classifica' => 'classifica#table'
   get 'classifica_c' => 'classifica_c#table'
+  get 'classifica_c_admin' => 'classifica_c_admin#table_admin'
   get 'combatti' => 'combatti#precomb'
 end
