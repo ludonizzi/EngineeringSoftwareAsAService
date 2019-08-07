@@ -8,7 +8,7 @@
 
 admin = {
     :roles_mask => 4,
-    :email => "admin@admin",
+    :email => "admin@admin.com",
     :password => "adminadmin",
     :username => "admin",
     :created_at => "2019-08-05 10:19:18",
