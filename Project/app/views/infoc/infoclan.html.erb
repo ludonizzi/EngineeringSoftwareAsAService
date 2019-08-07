@@ -2,43 +2,53 @@
 
 
 <% if(current_user.clan == 1) %><h1 align="center">Info Clan Guerrieri</h1> 
-    <div id = "content">
-
-
-
-<%= image_tag("guerriero.jpg", :style => "display: block; margin: 0px auto; width: 300px; height: 300px; cursor: pointer;", :alt => "logo") %>
-
-
-  <dl>
-  <dd>  <b> Status Clan </b> &nbsp;&nbsp;&nbsp;&nbsp; </dd>
-  <br>
-  <dd> <b>Vittorie Clan:</b> &nbsp;&nbsp;&nbsp;&nbsp; <%=  2 %></dd>
-
-    <dd><b>Sconfitte Clan:</b> &nbsp;&nbsp;&nbsp;&nbsp; <%=   4 %></dd>
-
-    <br><br>
-
-    <dd><b>Caratteristiche Clan</b> &nbsp;&nbsp;&nbsp;&nbsp; </dd>
-    <br>
-    <dd><b>Attacco:</b> &nbsp;&nbsp;&nbsp;&nbsp;<%= 100 %></dd>
-
-    <dd><b>Difesa:</b> &nbsp;&nbsp;&nbsp;&nbsp;<%= 30 %></dd>
     
+    <div class = "main">
 
-    <dd><b>Attacco Speciale: </b> &nbsp;&nbsp;&nbsp;&nbsp; <%= 150 %></dd>
-    
-    <dd><b>Difesa Speciale:</b> &nbsp;&nbsp;&nbsp;&nbsp; <%= 70 %></dd>
+      <div class = "content">
 
-  </dl>
 
-</div>
 
+      <%= image_tag("guerriero.jpg", :style => "display: block; margin: 0px auto; width: 300px; height: 300px; cursor: pointer;", :alt => "logo") %>
+
+
+        <dl>
+        <dd>  <b> Status Clan </b> &nbsp;&nbsp;&nbsp;&nbsp; </dd>
+        <br>
+        <dd> <b>Vittorie Clan:</b> &nbsp;&nbsp;&nbsp;&nbsp; <%=  2 %></dd>
+
+          <dd><b>Sconfitte Clan:</b> &nbsp;&nbsp;&nbsp;&nbsp; <%=   4 %></dd>
+
+          <br><br>
+
+          <dd><b>Caratteristiche Clan</b> &nbsp;&nbsp;&nbsp;&nbsp; </dd>
+          <br>
+          <dd><b>Attacco:</b> &nbsp;&nbsp;&nbsp;&nbsp;<%= 100 %></dd>
+
+          <dd><b>Difesa:</b> &nbsp;&nbsp;&nbsp;&nbsp;<%= 30 %></dd>
+          
+
+          <dd><b>Attacco Speciale: </b> &nbsp;&nbsp;&nbsp;&nbsp; <%= 150 %></dd>
+          
+          <dd><b>Difesa Speciale:</b> &nbsp;&nbsp;&nbsp;&nbsp; <%= 70 %></dd>
+
+        </dl>
+
+        
+
+      </div>
+
+      <div class = "footer">
+        <iframe src="https://it.wikipedia.org/wiki/Guerriero_(Dungeons_%26_Dragons)" width="800" height="800">
+        </iframe>
+      </div>
+  </div>
     
 <% end %>
 
 <% if(current_user.clan == 2) %><h1>Info Clan Elfi</h1> 
-    
-    <div id = "content">
+    <div class = "main">
+    <div class = "content">
 
     <%= image_tag("elfo.jpg", :style => "display: block; margin: 0px auto; width: 300px; height: 300px; cursor: pointer;", :alt => "logo") %>
 
@@ -65,15 +75,20 @@
   </dl>
 
 </div>
+  <div class = "footer">
+        <iframe src="https://it.wikipedia.org/wiki/Elfo_(Dungeons_%26_Dragons)" width="800" height="800">
+        </iframe>
+      </div>
+  </div>
 
 
   </div>
-
+  </div>
 <% end %>
 
 <% if(current_user.clan == 3) %><h1>Info Clan Orchi</h1> 
-    
-    <div id = "content">
+    <div class = "main">
+    <div class = "content">
 
     <%= image_tag("orco.jpg", :style => "display: block; margin: 0px auto; width: 300px; height: 300px; cursor: pointer;", :alt => "logo") %>
 
@@ -101,19 +116,28 @@
 
 </div>
 
-
+<div class = "footer">
+        <iframe src="https://it.wikipedia.org/wiki/Orchi_(Warcraft)" width="800" height="800">
+        </iframe>
+      </div>
+  </div>
   </div>
 
 <% end %>
 
 <style>
 
-#content
+.content
 {
 	width: 355px;
 	margin: 0; /* per azzerare */
-	padding: 0; /* per azzerare */
+	left: 1000
+  top: 100
+  padding: 0; /* per azzerare */
 }
 
+.main { height: 100%; }
+.content { float: left; width: 335px; height: 80%; padding: 4px;}
+.footer {text-align: justify; padding: 4px;}
 </style>
 

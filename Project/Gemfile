@@ -34,6 +34,10 @@ gem 'haml'
 gem 'omniauth'
 gem 'omniauth-facebook'
 
+gem 'mediawiki-butt'
+gem 'wikipedia-client'
+
+
 
 
 
