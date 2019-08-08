@@ -1,3 +1,87 @@
 <title>Risultato</title>
+</br>
+</br>
+<%@att=@u.attacco%>
+<%@def=@u.difesa%>
+<%@att2=@u2.attacco%>
+<%@def2=@u2.difesa%>
+
+<%if(@u.att=="Spada")&&((@u2.def=="Scudo di legno")||(@u2.def=="Doppia arma"))%><%@att+=3%><% end %>
+<%if(@u.att=="Arco")&&(@u2.def=="Doppia arma")%><%@att+=6%><% end %>
+<%if(@u.att=="Mazza chiodata")&&((@u2.def=="Scudo di legno")||(@u2.def=="Scudo di ferro"))%><%@att+=3%><%end%>
+
+
+<%if((@u.def=="Scudo di legno")&&(@u2.att=="Arco"))%> <%@def+=6%> <%end%>
+<%if(@u.def=="Scudo di ferro")&&((@u2.att=="Spada")||(@u2.att=="Arco"))%><%@def+=3%><%end%>
+<%if((@u.def=="Doppia arma")&&((@u2.att=="Spada")||(@u2.att=="Mazza chiodata")))%> <%@att+=2%><%@def+=2%><%end%>
+
+<%if(@u.arm=="Cotta di maglia")%><%@att+=3%><%@def+=3%><%end%>
+<%if(@u.arm=="Completo del viandante")%><%@att+=6%><%@def+=1%><%end%>
+<%if(@u.arm=="Armatura di diamante")%><%@att+=1%><%@def+=6%><%end%>
+
+
+
+<%if(@u2.att=="Spada")&&((@u.def=="Scudo di legno")||(@u.def=="Doppia arma"))%><%@att2+=3%><% end %>
+<%if(@u2.att=="Arco")&&(@u.def=="Doppia arma")%><%@att2+=6%><% end %>
+<%if(@u2.att=="Mazza chiodata")&&((@u.def=="Scudo di legno")||(@u.def=="Scudo di ferro"))%><%@att2+=3%><%end%>
+
+
+<%if((@u2.def=="Scudo di legno")&&(@u.att=="Arco"))%> <%@def2+=6%> <%end%>
+<%if(@u2.def=="Scudo di ferro")&&((@u.att=="Spada")||(@u.att=="Arco"))%><%@def2+=3%><%end%>
+<%if((@u2.def=="Doppia arma")&&((@u.att=="Spada")||(@u.att=="Mazza chiodata")))%> <%@att2+=2%><%@def2+=2%><%end%>
+
+<%if(@u2.arm=="Cotta di maglia")%><%@att2+=3%><%@def2+=3%><%end%>
+<%if(@u2.arm=="Completo del viandante")%><%@att2+=6%><%@def2+=1%><%end%>
+<%if(@u2.arm=="Armatura di diamante")%><%@att2+=1%><%@def2+=6%><%end%>
+
+
+
+<%if(@att >= @def2)&&(@def >= @att2)%>
 <h1>HAI VINTO!!!</h1>
+</br>
+<TABLE class="table table-borderless" COLS=1 WIDTH="50%">
+	<TR><TD>Attacco: </b>&nbsp;&nbsp;<%= @u.attacco%> +2</TD></TR>
+	<TR><TD>Attacco Speciale:</b>&nbsp;&nbsp;<%= @u.attaccospec%> +1</TD></TR>
+	<TR><TD>Difesa: </b>&nbsp;&nbsp;<%= @u.difesa %> +2</TD></TR>
+	<TR><TD>Difesa Speciale:</b>&nbsp;&nbsp;<%= @u.difesaspec%> +1</TD></TR>
+      </TABLE>
+</br>
+<%end%>
+
+<%if(@att < @def2)&&(@def < @att2)%>
+<h1>HAI PERSO...</h1>
+</br>
+<TABLE class="table table-borderless" COLS=1 WIDTH="50%">
+	<TR><TD>Attacco: </b>&nbsp;&nbsp;<%= @u.attacco%> -1</TD></TR>
+	<TR><TD>Attacco Speciale:</b>&nbsp;&nbsp;<%= @u.attaccospec%> -0</TD></TR>
+	<TR><TD>Difesa: </b>&nbsp;&nbsp;<%= @u.difesa %> -1</TD></TR>
+	<TR><TD>Difesa Speciale:</b>&nbsp;&nbsp;<%= @u.difesaspec%> -0</TD></TR>
+      </TABLE>
+</br>
+<%end%>
+
+
+
+
+
+
+
+</br>
+</br>
 <center><%= link_to "Combatti di nuovo", "combatti", class: "btn btn-lg btn-primary" %></center>
+<style>
+body
+{
+	font:10px
+}
+table  {
+	border-collapse:collapse
+	align="center"
+        WIDTH="40%"
+}
+td, th {
+	border:0px;
+	padding:10px;
+}
+
+</style>

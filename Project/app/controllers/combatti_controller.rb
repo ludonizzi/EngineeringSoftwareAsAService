@@ -11,6 +11,12 @@ class CombattiController < ApplicationController
     end
 
     def results
+	@u = User.find(current_user.id)
+        @u2 = User.find(current_user.id+1)
+	@att = 0
+	@def = 0
+	@att2 = 0
+	@def2 = 0
     end
 
 end
