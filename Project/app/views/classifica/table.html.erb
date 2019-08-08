@@ -13,7 +13,7 @@
 			<tr>
 				<% @users.each_with_index do |user,index| %>
 				<% if (user.clan ==1) %>
-					<th><%=  index+1  %></th>
+					<th><%=  @contatore = @contatore+1  %></th>
 					<th><%= link_to user.username, profile_path(user.id) %></th>
 					
 					<td rowspan="1">Guerriero</td><td> <%= user.vittorie %></td><td><%= user.sconfitte %></td><td><%=
@@ -26,7 +26,7 @@
 				<% end %>
 
 				<% if (user.clan ==2) %>
-					<th><%=  index+1  %></th>
+					<th><%=  @contatore = @contatore+1  %></th>
 					<th><%= link_to user.username, profile_path(user.id) %></th>
 					<td rowspan="1">Elfo</td><td> <%= user.vittorie %></td><td><%= user.sconfitte %></td><td><%=
 				if user.sconfitte == 0
@@ -38,7 +38,7 @@
 				<% end %>
 
 				<% if (user.clan ==3) %>
-					<th><%=  index+1  %></th>
+					<th><%=  @contatore = @contatore+1 %></th>
 					<th><%= link_to user.username, profile_path(user.id) %></th>
 					<td rowspan="1">Orco</td><td> <%= user.vittorie %></td><td><%= user.sconfitte %></td><td><%=
 				if user.sconfitte == 0
@@ -68,7 +68,7 @@
 			<tr>
 				<% @users.each_with_index do |user,index| %>
 				<% if (user.clan ==1) %>
-					<th><%=  index+1  %></th>
+					<th><%=  @contatore = @contatore+1  %></th>
 					<th><%= link_to user.username, profile_path(user.id) %></th>
 					
 					<td rowspan="1">Guerriero</td><td> <%= user.vittorie %></td><td><%= user.sconfitte %></td><td><%=
@@ -81,7 +81,7 @@
 				<% end %>
 
 				<% if (user.clan ==2) %>
-					<th><%=  index+1  %></th>
+					<th><%=  @contatore = @contatore+1  %></th>
 					<th><%= link_to user.username, profile_path(user.id) %></th>
 					<td rowspan="1">Elfo</td><td> <%= user.vittorie %></td><td><%= user.sconfitte %></td><td><%=
 				if user.sconfitte == 0
@@ -93,7 +93,7 @@
 				<% end %>
 
 				<% if (user.clan ==3) %>
-					<th><%=  index+1  %></th>
+					<th><%=  @contatore = @contatore+1  %></th>
 					<th><%= link_to user.username, profile_path(user.id) %></th>
 					<td rowspan="1">Orco</td><td> <%= user.vittorie %></td><td><%= user.sconfitte %></td><td><%=
 				if user.sconfitte == 0
@@ -123,7 +123,7 @@
 			<tr>
 				<% @users.each_with_index do |user,index| %>
 				<% if (user.clan ==1) %>
-					<th><%=  index+1  %></th>
+					<th><%=  @contatore = @contatore+1  %></th>
 					<th><%= user.username %></th>
 					
 					<td rowspan="1">Guerriero</td><td> <%= user.vittorie %></td><td><%= user.sconfitte %></td><td><%=
@@ -136,7 +136,7 @@
 				<% end %>
 
 				<% if (user.clan ==2) %>
-					<th><%=  index+1  %></th>
+					<th><%=  @contatore = @contatore+1  %></th>
 					<th><%= user.username %></th>
 					<td rowspan="1">Elfo</td><td> <%= user.vittorie %></td><td><%= user.sconfitte %></td><td><%=
 				if user.sconfitte == 0
@@ -148,7 +148,7 @@
 				<% end %>
 
 				<% if (user.clan ==3) %>
-					<th><%=  index+1  %></th>
+					<th><%=  @contatore = @contatore+1  %></th>
 					<th><%= user.username %></th>
 					<td rowspan="1">Orco</td><td> <%= user.vittorie %></td><td><%= user.sconfitte %></td><td><%=
 				if user.sconfitte == 0

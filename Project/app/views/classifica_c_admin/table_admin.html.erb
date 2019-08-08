@@ -12,7 +12,7 @@
                 <tr>
                     <% @users.each_with_index do |user,index| %>
                     <% if (@var == user.clan) %>
-                        <th><%= index+1%></th>
+                        <th><%= @contatore = @contatore+1 %></th>
                         <th><%= link_to user.username, profile_path(user.id) %></th>
                         <td> <%= user.vittorie %></td><td><%= user.sconfitte %></td><td><%=
                         if user.sconfitte == 0
@@ -41,7 +41,7 @@
                 <tr>
                     <% @users.each_with_index do |user,index| %>
                     <% if (@var == user.clan) %>
-                        <th><%= index+1%></th>
+                        <th><%= @contatore = @contatore+1 %></th>
                         <th><%= link_to user.username, profile_path(user.id) %></th>
                         <td> <%= user.vittorie %></td><td><%= user.sconfitte %></td><td><%=
                         if user.sconfitte == 0
@@ -71,7 +71,7 @@
                 <tr>
                     <% @users.each_with_index do |user,index| %>
                     <% if (@var == user.clan) %>
-                        <th><%= index+1%></th>
+                        <th><%= @contatore = @contatore+1 %></th>
                         <th><%= link_to user.username, profile_path(user.id) %></th>
                         <td> <%= user.vittorie %></td><td><%= user.sconfitte %></td><td><%=
                         if user.sconfitte == 0

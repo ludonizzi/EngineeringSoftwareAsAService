@@ -1,6 +1,7 @@
 class ClassificaCController < ApplicationController
   def table
     @users = User.all.order(created_at: :desc)
+    @contatore = 0
     @var = params[:id]
     @users.each do |user|
       user.vittorie = user.id
