@@ -32,4 +32,5 @@ Rails.application.routes.draw do
   get 'infoc_admin' => 'infoc_admin#infoclan_admin'
   get 'combatti' => 'combatti#precomb'
   get 'combatti2' => 'combatti#postcomb'
+  get 'risultato' => 'combatti#results'
 end
