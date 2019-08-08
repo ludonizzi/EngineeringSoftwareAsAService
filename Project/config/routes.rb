@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 
+  get 'infoc_admin/infoclan_admin'
   get 'classifica_c_admin/table_admin'
   get 'infoc/infoclan'
   get 'classifica_c/table'
@@ -28,6 +29,7 @@ Rails.application.routes.draw do
   get 'classifica' => 'classifica#table'
   get 'classifica_c' => 'classifica_c#table'
   get 'classifica_c_admin' => 'classifica_c_admin#table_admin'
+  get 'infoc_admin' => 'infoc_admin#infoclan_admin'
   get 'combatti' => 'combatti#precomb'
   get 'combatti2' => 'combatti#postcomb'
 end

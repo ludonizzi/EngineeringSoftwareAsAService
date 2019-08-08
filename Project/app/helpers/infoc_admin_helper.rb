@@ -1,0 +1,2 @@
+module InfocAdminHelper
+end
