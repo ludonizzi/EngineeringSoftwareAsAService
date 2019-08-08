@@ -3,7 +3,7 @@
 
 </br>
 <table>
-<tr><td>
+<tr><td width=30%>
 
 <FONT SIZE=+2><%=@user.username%> -     <% if (@user.clan==1) %>
             <span class="none">Guerriero</span>
@@ -65,10 +65,34 @@
 </table>
 
 </td>
-<td width=45%><h1> VS </h1></td>
-<td><%= link_to "Cerca Avversario", "combatti2", class: "btn btn-lg btn-primary" %></td>
+<td><h1> VS </h1></td>
+
+<td width=30%>
+<FONT SIZE=+2><%=@user2.username%> -     <% if (@user2.clan==1) %>
+            <span class="none">Guerriero</span>
+    <% end %>
+    <% if (@user2.clan==2) %>
+            <span class="none">Elfo</span>
+    <% end %>
+
+    <% if (@user2.clan==3) %>
+            <span class="none">Orco</span>
+    <% end %>
+</FONT>
+</br>
+<TABLE class="table table-borderless" COLS=1 WIDTH="20%">
+        <TR><TD>Livello: </b>&nbsp;&nbsp;<%= @user2.livello %></TD></TR>
+	<TR><TD>Attacco: </b>&nbsp;&nbsp;<%= @user2.attacco%></TD></TR>
+	<TR><TD>Attacco Speciale:</b>&nbsp;&nbsp;<%= @user2.attaccospec%></TD></TR>
+	<TR><TD>Difesa: </b>&nbsp;&nbsp;<%= @user2.difesa %></TD></TR>
+	<TR><TD>Difesa Speciale:</b>&nbsp;&nbsp;<%= @user2.difesaspec %></TD></TR>
+      </TABLE>
+
+</td>
 </tr>
 </table>
+</br>
+<center><button type="button" class="btn btn-primary btn-lg">Combatti!</button></center>
 
 <style>
 body
