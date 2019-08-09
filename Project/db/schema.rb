@@ -51,18 +51,18 @@ ActiveRecord::Schema.define(version: 2019_08_08_115704) do
     t.string "username"
     t.string "nome"
     t.string "cognome"
-    t.integer "attacco", default: 0
-    t.integer "difesa", default: 0
-    t.integer "attaccospec", default: 0
-    t.integer "difesaspec", default: 0
-    t.integer "livello", default: 0
     t.string "img_profile"
     t.integer "clan"
     t.string "provider"
     t.string "uid"
-    t.string "att"
-    t.string "def"
-    t.string "arm"
+    t.integer "attacco", default: 5
+    t.integer "difesa", default: 5
+    t.integer "attaccospec", default: 1
+    t.integer "difesaspec", default: 1
+    t.integer "livello", default: 1
+    t.string "att", default: "Spada"
+    t.string "def", default: "Scudo di ferro"
+    t.string "arm", default: "Cotta di maglia"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
