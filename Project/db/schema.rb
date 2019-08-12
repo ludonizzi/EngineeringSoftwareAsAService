@@ -12,20 +12,11 @@
 
 ActiveRecord::Schema.define(version: 2019_08_08_115704) do
 
-  create_table "clan", force: :cascade do |t|
+  create_table "clans", force: :cascade do |t|
     t.string "nome"
-    t.text "descrizione"
-    t.string "arma1"
-    t.string "arma2"
-    t.string "difesa"
+    t.integer "membri"
     t.integer "capoclan_id"
-    t.integer "membri", default: 0
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.text "status_clan"
-  end
-
-  create_table "profiles", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -51,15 +42,15 @@ ActiveRecord::Schema.define(version: 2019_08_08_115704) do
     t.string "username"
     t.string "nome"
     t.string "cognome"
-    t.string "img_profile"
-    t.integer "clan"
-    t.string "provider"
-    t.string "uid"
     t.integer "attacco", default: 5
     t.integer "difesa", default: 5
     t.integer "attaccospec", default: 1
     t.integer "difesaspec", default: 1
     t.integer "livello", default: 1
+    t.string "img_profile"
+    t.integer "clan"
+    t.string "provider"
+    t.string "uid"
     t.string "att", default: "Spada"
     t.string "def", default: "Scudo di ferro"
     t.string "arm", default: "Cotta di maglia"

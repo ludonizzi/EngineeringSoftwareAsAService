@@ -1,8 +1,8 @@
 <title>Info Clan</title>
 
 
-<% if(current_user.clan == 1) %><h1 align="center">Info Clan Guerrieri</h1> 
-    
+<% if(current_user.clan == 1) %><h1 align="center">Info Clan Guerrieri</h1>
+
     <div class = "main">
 
       <div class = "content">
@@ -13,28 +13,30 @@
 
 
         <dl>
-        <dd>  <b> Status Clan </b> &nbsp;&nbsp;&nbsp;&nbsp; </dd>
+        <dd>  <b> Status Clan: </b> &nbsp;&nbsp;&nbsp;&nbsp; </dd>
         <br>
-        <dd> <b>Vittorie Clan:</b> &nbsp;&nbsp;&nbsp;&nbsp; <%=  2 %></dd>
+        <dd>  <b> Membri Clan: </b> &nbsp;&nbsp;&nbsp;&nbsp; <%= 0 %></dd>
+        <br>
+        <dd> <b>Vittorie Clan:</b> &nbsp;&nbsp;&nbsp;&nbsp; <%=  vitt %></dd>
 
-          <dd><b>Sconfitte Clan:</b> &nbsp;&nbsp;&nbsp;&nbsp; <%=   4 %></dd>
+          <dd><b>Sconfitte Clan:</b> &nbsp;&nbsp;&nbsp;&nbsp; <%=   scon %></dd>
 
           <br><br>
 
-          <dd><b>Caratteristiche Clan</b> &nbsp;&nbsp;&nbsp;&nbsp; </dd>
+          <dd><b>Caratteristiche:</b> &nbsp;&nbsp;&nbsp;&nbsp; </dd>
           <br>
           <dd><b>Attacco:</b> &nbsp;&nbsp;&nbsp;&nbsp;<%= 100 %></dd>
 
           <dd><b>Difesa:</b> &nbsp;&nbsp;&nbsp;&nbsp;<%= 30 %></dd>
-          
+
 
           <dd><b>Attacco Speciale: </b> &nbsp;&nbsp;&nbsp;&nbsp; <%= 150 %></dd>
-          
+
           <dd><b>Difesa Speciale:</b> &nbsp;&nbsp;&nbsp;&nbsp; <%= 70 %></dd>
 
         </dl>
 
-        
+
 
       </div>
 
@@ -43,33 +45,48 @@
         </iframe>
       </div>
   </div>
-    
+
 <% end %>
 
-<% if(current_user.clan == 2) %><h1>Info Clan Elfi</h1> 
+<% if(current_user.clan == 2) %><h1>Info Clan Elfi</h1>
     <div class = "main">
     <div class = "content">
 
     <%= image_tag("elfo.jpg", :style => "display: block; margin: 0px auto; width: 300px; height: 300px; cursor: pointer;", :alt => "logo") %>
 
     <dl>
-  <dd>  <b> Status Clan </b> &nbsp;&nbsp;&nbsp;&nbsp; </dd>
+  <dd>  <b> Status Clan: </b> &nbsp;&nbsp;&nbsp;&nbsp; </dd>
   <br>
-  <dd> <b>Vittorie Clan:</b> &nbsp;&nbsp;&nbsp;&nbsp; <%=  1 %></dd>
 
-    <dd><b>Sconfitte Clan:</b> &nbsp;&nbsp;&nbsp;&nbsp; <%=   3 %></dd>
+  <%
+
+    vitt = 0
+    scon = 0
+    @users = User.all.order(created_at: :desc)
+    @users.each do |user|
+    if @user.clan == 2
+        vitt = vitt + user.vittorie
+        scon = scon + user.sconfitte
+    end
+    end %>
+
+  <dd>  <b> Membri Clan: </b> &nbsp;&nbsp;&nbsp;&nbsp; <%= 0 %></dd>
+        <br>
+  <dd> <b>Vittorie Clan:</b> &nbsp;&nbsp;&nbsp;&nbsp;  <%= vitt %></dd>
+
+    <dd><b>Sconfitte Clan:</b> &nbsp;&nbsp;&nbsp;&nbsp; <%= scon %></dd>
 
     <br><br>
 
-    <dd><b>Caratteristiche Clan</b> &nbsp;&nbsp;&nbsp;&nbsp; </dd>
+    <dd><b>Caratteristiche:</b> &nbsp;&nbsp;&nbsp;&nbsp; </dd>
     <br>
     <dd><b>Attacco:</b> &nbsp;&nbsp;&nbsp;&nbsp;<%= 90 %></dd>
 
     <dd><b>Difesa:</b> &nbsp;&nbsp;&nbsp;&nbsp;<%= 40 %></dd>
-    
+
 
     <dd><b>Attacco Speciale: </b> &nbsp;&nbsp;&nbsp;&nbsp; <%= 110 %></dd>
-    
+
     <dd><b>Difesa Speciale:</b> &nbsp;&nbsp;&nbsp;&nbsp; <%= 70 %></dd>
 
   </dl>
@@ -86,30 +103,32 @@
   </div>
 <% end %>
 
-<% if(current_user.clan == 3) %><h1>Info Clan Orchi</h1> 
+<% if(current_user.clan == 3) %><h1>Info Clan Orchi</h1>
     <div class = "main">
     <div class = "content">
 
     <%= image_tag("orco.jpg", :style => "display: block; margin: 0px auto; width: 300px; height: 300px; cursor: pointer;", :alt => "logo") %>
 
     <dl>
-  <dd>  <b> Status Clan </b> &nbsp;&nbsp;&nbsp;&nbsp; </dd>
+  <dd>  <b> Status Clan: </b> &nbsp;&nbsp;&nbsp;&nbsp; </dd>
   <br>
+  <dd>  <b> Membri Clan: </b> &nbsp;&nbsp;&nbsp;&nbsp; <%= 0 %></dd>
+        <br>
   <dd> <b>Vittorie Clan:</b> &nbsp;&nbsp;&nbsp;&nbsp; <%=  5 %></dd>
 
     <dd><b>Sconfitte Clan:</b> &nbsp;&nbsp;&nbsp;&nbsp; <%=   3 %></dd>
 
     <br><br>
 
-    <dd><b>Caratteristiche Clan</b> &nbsp;&nbsp;&nbsp;&nbsp; </dd>
+    <dd><b>Caratteristiche:</b> &nbsp;&nbsp;&nbsp;&nbsp; </dd>
     <br>
     <dd><b>Attacco:</b> &nbsp;&nbsp;&nbsp;&nbsp;<%= 50 %></dd>
 
     <dd><b>Difesa:</b> &nbsp;&nbsp;&nbsp;&nbsp;<%= 120 %></dd>
-    
+
 
     <dd><b>Attacco Speciale: </b> &nbsp;&nbsp;&nbsp;&nbsp; <%= 70 %></dd>
-    
+
     <dd><b>Difesa Speciale:</b> &nbsp;&nbsp;&nbsp;&nbsp; <%= 150 %></dd>
 
   </dl>

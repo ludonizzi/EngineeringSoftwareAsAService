@@ -127,20 +127,41 @@
 
 <footer class="footer">
 
-<h1> Statistiche </h1>
+<br><br>
+<h1 id = "titoloStats"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Statistiche &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Ultimi Incontri</h1>
+
+
+<div id = "stats">
 
 <div class="center jumbotron">
 
-    <dd><b>Vittorie: </b>&nbsp;&nbsp;<%= current_user.vittorie %></dd>
+    <dd style="text-align:left;"><b>Vittorie: </b>&nbsp;&nbsp;<%= current_user.vittorie %></dd>
 
-    <dd><b>Sconfitte:</b>&nbsp;&nbsp;<%= current_user.sconfitte%></dd>
+    <dd style="text-align:left;"><b>Sconfitte:</b>&nbsp;&nbsp;<%= current_user.sconfitte%></dd>
 
-    <dd><b>Rateo:</b>&nbsp;&nbsp;
+    <dd style="text-align:left;"><b>Rateo:</b>&nbsp;&nbsp;
     <%=if current_user.sconfitte == 0
         current_user.vittorie/1
     else
         (((current_user.vittorie.to_f)/(current_user.sconfitte.to_f))*100).round / 100.0
         end%>
 
+</div>
 
 </div>
+        <dl>
+
+<div id="battlestats">
+
+<div class="center jumbotron">
+       <dd style="text-align:left;"><b><%= @current_user.username %></b> &nbsp;&nbsp; VS &nbsp;&nbsp; <b>Qualcosa</b>  &nbsp;&nbsp;  --> Vittoria </dd>
+        <dd style="text-align:left;"><b><%= @current_user.username %></b> &nbsp;&nbsp; VS &nbsp;&nbsp; <b>Qualcosa</b>  &nbsp;&nbsp;  --> Vittoria </dd>
+       <dd style="text-align:left;"><b><%= @current_user.username %></b> &nbsp;&nbsp; VS &nbsp;&nbsp; <b>Qualcosa</b>  &nbsp;&nbsp;  --> Vittoria </dd>
+
+
+        </dl>
+</div>
+
+</div>
+
+

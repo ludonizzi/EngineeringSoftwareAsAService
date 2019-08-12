@@ -6,5 +6,13 @@ class InfocAdminController < ApplicationController
       user.vittorie = user.id
       user.sconfitte = 5
     end
+
+    vitt = 0
+    scon = 0
+
+    @users.each do |user|
+        vitt = vitt + user.vittorie
+        scon = scon + user.sconfitte
+    end
   end
 end

@@ -15,5 +15,31 @@ admin = {
     :updated_at => "2019-08-05 10:19:18"
 }
 
+guerriero = { #ID = 1
 
+    :nome => "guerriero",
+    :membri => 0,
+    :created_at => "2019-08-05 10:19:18",
+    :updated_at => "2019-08-05 10:19:18"
+}
+
+elfo= { #ID = 2
+    :nome => "elfo",
+    :membri => 0,
+    :created_at => "2019-08-05 10:19:18",
+    :updated_at => "2019-08-05 10:19:18"
+}
+
+orco = { #ID = 3
+    :nome => "orco",
+    :membri => 0,
+    :created_at => "2019-08-05 10:19:18",
+    :updated_at => "2019-08-05 10:19:18"
+}
+
+
+#DA ELIMINARE SE SI VUOLE AGGIUNGERE ALTRE COSE
 User.create!(admin)
+Clan.create!(guerriero)
+Clan.create!(elfo)
+Clan.create!(orco)

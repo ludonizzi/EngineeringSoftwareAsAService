@@ -193,13 +193,10 @@ footer ul li {
     }
 }
 
-
 .ogre{
     .ogre1{
-
     }
     .ogre2{
-
     }
     .ogre3{
 
@@ -212,4 +209,31 @@ footer ul li {
 .table-borderless > thead > tr > th {
     border: none;
 }
+}
+
+
+#stats {
+    width: 300px;
+	float:left;
+    padding-right:10px;
+}
+
+
+#battlestats {
+    width: 500px;
+    min-height: 500px;
+	float:left;
+}
+
+
+#titoloStats{
+
+ text-align: left;
+}
+
+
+#titoloBattleStats{
+    text-align:right;
+
+
 }

@@ -16,6 +16,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def create
     begin
       @user = User.new sign_up_params
+      Clan.find(@user.clan).membri +=1
+
     end
 
     super do |resource|
