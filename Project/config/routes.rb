@@ -12,13 +12,15 @@ Rails.application.routes.draw do
     #da capire se da errore
     resources :users, only: [:show, :edit, :update]
 
-  resources :profile
+    resources :clan
+
+    resources :profile
 
   as :user do
     get 'profile', :to => 'profile#index', :as => :user_root # Rails 3
   end
 
-  
+
 
   root 'static_pages#home'
   get 'regolamento'    => 'static_pages#regolamento'

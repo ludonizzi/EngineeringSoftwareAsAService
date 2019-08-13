@@ -25,7 +25,29 @@
     end %>
 
         <dl>
-        <dd>  <b> Status Clan: </b> &nbsp;&nbsp;&nbsp;&nbsp; </dd>
+        <dd>  <b> Status Clan:</b>&nbsp;&nbsp;&nbsp;&nbsp;
+
+                            <% if current_user.roles_mask == 2  && @clan1.status_clan == nil  %>
+                                <p width=20%><%= link_to "Inserisci Status", edit_clan_path(1) , class: "btn btn-lg btn-primary" %></p>
+
+                            <% elsif @clan1.status_clan == nil && current_user.roles_mask != 2 %>
+                                <em> Il Capoclan deve ancora inserire uno status!</em>
+
+                            <%else%>
+                                <em><%= @clan1.status_clan %></em>
+
+
+                            <%end%>
+                            &nbsp;&nbsp;
+
+                            <% if current_user.roles_mask == 2 %>
+                                <p width=10%><%= link_to "Modifica", edit_clan_path(1) , class: "btn btn-lg btn-primary" %></p>
+
+                            <%end%>
+
+
+
+          </dd>
         <br>
         <dd>  <b> Membri: </b> &nbsp;&nbsp;&nbsp;&nbsp; <%= @clan1.membri %></dd>
         <br>
@@ -69,7 +91,29 @@
 
 
     <dl>
-  <dd>  <b> Status Clan: </b> &nbsp;&nbsp;&nbsp;&nbsp; </dd>
+  <dd>  <b> Status Clan: </b> &nbsp;&nbsp;&nbsp;&nbsp;
+
+                            <% if current_user.roles_mask == 2  && @clan2.status_clan == nil  %>
+                                <td width=20%><%= link_to "Inserisci Status", edit_clan_path(2) , class: "btn btn-lg btn-primary" %></td>
+
+                            <% elsif @clan2.status_clan == nil && current_user.roles_mask != 2 %>
+                                <em> Il Capoclan deve ancora inserire uno status!</em>
+
+                            <%else%>
+                                <em><%= @clan2.status_clan %></em>
+
+                            <%end%>
+
+                            &nbsp;&nbsp;
+
+                            <% if current_user.roles_mask == 2 %>
+                                <td width=20%><%= link_to "Modifica", edit_clan_path(2) , class: "btn btn-lg btn-primary" %></td>
+
+
+
+                            <%end%>
+
+                                </dd>
   <br>
 
   <%
@@ -136,7 +180,28 @@
     end %>
 
     <dl>
-  <dd>  <b> Status Clan: </b> &nbsp;&nbsp;&nbsp;&nbsp; </dd>
+  <dd>  <b> Status Clan: </b> &nbsp;&nbsp;&nbsp;&nbsp;
+
+
+                     <% if current_user.roles_mask == 2  && @clan3.status_clan == nil  %>
+                                <td width=20%><%= link_to "Inserisci Status", edit_clan_path(3) , class: "btn btn-lg btn-primary" %></td>
+
+                            <% elsif @clan1.status_clan == nil && current_user.roles_mask != 2 %>
+                                <em> Il Capoclan deve ancora inserire uno status!</em>
+
+                            <%else%>
+                                <em><%= @clan3.status_clan %></em>
+
+
+                            <%end%>
+
+                                &nbsp;&nbsp;
+                            <% if current_user.roles_mask == 2 %>
+                                <td width=20%><%= link_to "Modifica", edit_clan_path(3) , class: "btn btn-lg btn-primary" %></td>
+
+                            <%end%>
+
+                                </dd>
   <br>
   <dd>  <b> Membri: </b> &nbsp;&nbsp;&nbsp;&nbsp; <%= @clan3.membri %></dd>
         <br>

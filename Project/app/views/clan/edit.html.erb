@@ -1,0 +1,15 @@
+<br><br>
+
+<%= form_for @clan do |f| %>
+
+    <div class="field">
+          <h3>Cambia Status del Clan</h3>
+           <br/><br/>
+          <%= f.label :status_clan %>
+          <i>(lascia vuoto se non vuoi cambiarlo)</i>
+            <%= f.text_field(:status_clan, class: 'form-control') %> <br/>
+
+            </div>
+
+   <%= f.submit "Salva Modifiche" ,:class=> "btn btn-lg btn-primary"%>
+<% end %>

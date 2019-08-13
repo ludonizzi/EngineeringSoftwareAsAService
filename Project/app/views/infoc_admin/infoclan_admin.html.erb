@@ -27,7 +27,10 @@
     end %>
 
         <dl>
-        <dd>  <b> Status Clan: </b> &nbsp;&nbsp;&nbsp;&nbsp; </dd>
+        <dd>  <b> Status Clan: </b> &nbsp;&nbsp;&nbsp;&nbsp;
+
+        <em><%= @clan1.status_clan %></em></dd>
+    <p width=10%><%= link_to "Modifica", edit_clan_path(1) , class: "btn btn-lg btn-primary" %></p>
         <br>
         <dd>  <b> Membri: </b> &nbsp;&nbsp;&nbsp;&nbsp; <%= @clan1.membri %></dd>
         <br>
@@ -82,7 +85,10 @@
     end %>
 
     <dl>
-  <dd>  <b> Status Clan: </b> &nbsp;&nbsp;&nbsp;&nbsp; </dd>
+  <dd>  <b> Status Clan: </b> &nbsp;&nbsp;&nbsp;&nbsp;
+
+  <em><%= @clan2.status_clan %></em></dd>
+    <p width=10%><%= link_to "Modifica", edit_clan_path(2) , class: "btn btn-lg btn-primary" %></p>
   <br>
   <dd>  <b> Membri: </b> &nbsp;&nbsp;&nbsp;&nbsp; <%= @clan2.membri %></dd>
   <br>
@@ -137,7 +143,11 @@
     end %>
 
     <dl>
-  <dd>  <b> Status Clan: </b> &nbsp;&nbsp;&nbsp;&nbsp; </dd>
+  <dd>  <b> Status Clan: </b> &nbsp;&nbsp;&nbsp;&nbsp;
+
+    <em><%= @clan3.status_clan %></em></dd>
+    <p width=10%><%= link_to "Modifica", edit_clan_path(3) , class: "btn btn-lg btn-primary" %></p>
+
   <br>
 
   <dd>  <b> Membri: </b> &nbsp;&nbsp;&nbsp;&nbsp; <%= @clan3.membri %></dd>
