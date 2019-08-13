@@ -13,7 +13,7 @@ class ClanController < ApplicationController
 
 
         if current_user.roles_mask == 4
-            redirect_to infoc_admin_path(@var)
+            redirect_to infoc_admin_path(id: params[:id])
 
         else
             redirect_to infoc_path
