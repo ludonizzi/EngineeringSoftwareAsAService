@@ -3,6 +3,5 @@ class UsersController < ApplicationController
 	def update
   		@user = User.find(params[:id])
   		@user.update(att: params[:user][:att], def: params[:user][:def], arm: params[:user][:arm])
-  		redirect_to combatti_url(@user)
 	end
 end

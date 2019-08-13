@@ -78,49 +78,21 @@
 <b><h3>Seleziona il tuo Equipaggiamento Difensivo</h3></b>
 <br><br>
 
-<table align = "center";  width = 70%>
+<table width = 40% class="table table-borderless">
+<tr><td>
+<%= form_for @user do |f| %>
+  <%= f.label :att %>:
+  <%= f.select :att, [["Spada"], ["Arco"], ["Mazza chiodata"]]%>
 
-<tr>
-<td style="border:none"><center><dd>Arma d'attacco</dd></center></td>
-<td style="border:none">
+  <%= f.label :def %>:
+  <%= f.select :def, [["Scudo di ferro"], ["Scudo di legno"], ["Doppia arma"]]%>
 
-<form >
-<b><select name="attacco" >
-<option value="att1" selected="selected">Spada </option>
-<option value="att2">Arco </option>
-<option value="att3">Mazza chiodata </option>
-</select></b>
-</form></td>
-</tr>
+  <%= f.label :arm %>:
+  <%= f.select :arm, [["Cotta di maglia"], ["Completo del viandante"], ["Armatura di diamante"]]%>
 
-<tr>
-<td style="border:none"><center><dd>Arma di difesa</dd></center></td>
-<td style="border:none">
-<form>
-
-<b><select name="difesa" >
-<option value="def1" selected="selected">Scudo di ferro</option>
-<option value="def2">Scudo di legno</option>
-<option value="def3">Doppia arma</option>
-</select></b>
-
-</form></td>
-</tr>
-
-<tr>
-<td style="border:none"><center><dd>Armatura</center></dd></td>
-<td style="border:none">
-
-<form>
-<b><select name="armatura" >
-<option value="arm1" selected="selected">Cotta di maglia</option>
-<option value="arm2">Completo del viandante</option>
-<option value="arm3">Armatura di diamante</option>
-</select>
-<b>
-
-</form></td>
-</tr>
+  <%= f.submit  'Salva modifiche!',class: "btn"%>
+<% end %>
+</td></tr>
 </table>
 
 </div>

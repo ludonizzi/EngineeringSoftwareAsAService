@@ -3,10 +3,10 @@ class ClassificaCController < ApplicationController
     @users = User.all.order(created_at: :desc)
     @contatore = 0
     @var = params[:id]
-    @users.each do |user|
-      user.vittorie = user.id
-      user.sconfitte = 5
-     end
+#    @users.each do |user|
+#     user.vittorie = user.id
+#     user.sconfitte = 5
+#    end
 
   end
 end
