@@ -3,7 +3,7 @@
 
 </br>
 <table>
-<tr><td width=30%>
+<tr><td>
 
 <FONT SIZE=+2><%=@user.username%> -     <% if (@user.clan==1) %>
             <span class="none">Guerriero</span>
@@ -29,43 +29,15 @@
 <FONT SIZE=+2>Equipaggiamento</FONT>
 </br>
 
-<table class="table table-borderless" width = 40%>
-<tr>
-<td><center>Arma d'attacco</center></td>
-<td><form>
-<select name="attacco" >
-<option value="att1" selected="selected">Spada </option>
-<option value="att2">Arco </option>
-<option value="att3">Mazza chiodata </option>
-</select>
-</form></td>
-</tr>
 
-<tr>
-<td><center>Arma di difesa</center></td>
-<td><form>
-<select name="difesa" >
-<option value="def1" selected="selected">Scudo di ferro</option>
-<option value="def2">Scudo di legno</option>
-<option value="def3">Doppia arma</option>
-</select>
-</form></td>
-</tr>
-
-<tr>
-<td><center>Armatura</center></td>
-<td><form>
-<select name="armatura" >
-<option value="arm1" selected="selected">Cotta di maglia</option>
-<option value="arm2">Completo del viandante</option>
-<option value="arm3">Armatura di diamante</option>
-</select>
-</form></td>
-</tr>
-</table>
+<TABLE class="table table-borderless" COLS=1 WIDTH="40%">
+        <TR><TD>Arma d'attacco: </b>&nbsp;&nbsp;<%= @user.att %></TD></TR>
+	<TR><TD>Arma di difesa: </b>&nbsp;&nbsp;<%= @user.def%></TD></TR>
+	<TR><TD>Armatura:</b>&nbsp;&nbsp;<%= @user.arm%></TD></TR>
+      </TABLE>
 
 </td>
-<td><h1> VS </h1></td>
+<td width=40%><h1> VS </h1></td>
 
 <td width=30%>
 <FONT SIZE=+2><%=@user2.username%> -     <% if (@user2.clan==1) %>

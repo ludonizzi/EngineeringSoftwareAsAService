@@ -17,7 +17,7 @@
     <% end %>
 </FONT>
 </br>
-<TABLE class="table table-borderless" COLS=1 WIDTH="20%">
+<TABLE class="table table-borderless" COLS=1>
         <TR><TD>Livello: </b>&nbsp;&nbsp;<%= @user.livello %></TD></TR>
 	<TR><TD>Attacco: </b>&nbsp;&nbsp;<%= @user.attacco%></TD></TR>
 	<TR><TD>Attacco Speciale:</b>&nbsp;&nbsp;<%= @user.attaccospec%></TD></TR>
@@ -28,47 +28,32 @@
 </br>
 <FONT SIZE=+2>Equipaggiamento</FONT>
 </br>
+<table width = 40% class="table table-borderless">
+<tr><td>
+<%= form_for @user do |f| %>
+  <%= f.label :att %>:
+  <%= f.select :att, [["Spada"], ["Arco"], ["Mazza chiodata"]]%>
 
-<table class="table table-borderless" width = 40%>
-<tr>
-<td><center>Arma d'attacco</center></td>
-<td><form>
-<select name="attacco" >
-<option value="att1" selected="selected">Spada</option>
-<option value="att2">Arco </option>
-<option value="att3">Mazza chiodata </option>
-</select>
-</form></td>
-</tr>
+  <%= f.label :def %>:
+  <%= f.select :def, [["Scudo di ferro"], ["Scudo di legno"], ["Doppia arma"]]%>
 
-<tr>
-<td><center>Arma di difesa</center></td>
-<td><form>
-<select name="difesa" >
-<option value="def1" selected="selected">Scudo di ferro</option>
-<option value="def2">Scudo di legno</option>
-<option value="def3">Doppia arma</option>
-</select>
-</form></td>
-</tr>
+  <%= f.label :arm %>:
+  <%= f.select :arm, [["Cotta di maglia"], ["Completo del viandante"], ["Armatura di diamante"]]%>
 
-<tr>
-<td><center>Armatura</center></td>
-<td><form>
-<select name="armatura" >
-<option value="arm1" selected="selected">Cotta di maglia</option>
-<option value="arm2">Completo del viandante</option>
-<option value="arm3">Armatura di diamante</option>
-</select>
-</form></td>
-</tr>
+  <%= f.submit  'Salva modifiche!',class: "btn btn-primary"%>
+<% end %>
+</td></tr>
 </table>
+
 
 </td>
-<td width=45%><h1> VS </h1></td>
-<td><%= link_to "Cerca Avversario", "combatti2", class: "btn btn-lg btn-primary" %></td>
+<td width=40%><h1> VS </h1></td>
+<td width=30%><%= link_to "Cerca Avversario", "combatti2", class: "btn btn-lg btn-primary" %></td>
 </tr>
 </table>
+
+</br>
+
 
 <style>
 body
