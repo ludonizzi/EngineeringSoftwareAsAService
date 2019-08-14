@@ -23,8 +23,15 @@ class ProfileController < ApplicationController
         @user = User.find(@var)
 
         if current_user.roles_mask == 4
-        #FUNZIONE DI RICERCA PER TROVARE L ALTRO CAPOCLAN ED ELIMINARLO
+            @users = User.all.order(created_at: :desc)
+            @users.each do |us|
+                if us.roles_mask == 2
+                    us.update_attributes!(:roles_mask => 1)
+                end
+            end
+
             @user.update_attributes!(:roles_mask => 2)
+            redirect_to admin_path(current_user.id)
 
         else
             @user.update_attributes!(:roles_mask => 2)
@@ -32,7 +39,8 @@ class ProfileController < ApplicationController
 
 
 
-        redirect_to profile_path(current_user.id)
+            redirect_to profile_path(current_user.id)
+        end
     end
 
 

@@ -25,9 +25,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
 
       @clan.update_attributes!(:membri => membri + 1)
-
-
-
     end
 
     super do |resource|

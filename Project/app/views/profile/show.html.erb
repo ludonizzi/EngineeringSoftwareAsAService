@@ -62,11 +62,20 @@
 <% elsif @var != current_user.id && current_user.roles_mask == 2 && User.find(@var).clan == current_user.clan  %>
 
         <dd><%= button_to 'Nomina Capoclan', {:action => "nomina_capoclan"}, :params => {:id => @var}, :method => :post, :style => 'width: 200px; ', :class => "btn btn-lg btn-primary" %>
-        <em style = "font-size: 14px;">        Attenzione - La scelta sarà irreversibile </em> </dd>
+        <em style = "font-size: 14px;">     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+           Attenzione - La scelta sarà irreversibile </em> </dd>
 
 <% elsif current_user.roles_mask == 4  && User.find(@var).roles_mask != 2 %>
-    <dd><%= button_to 'Nomina Capoclan', {:action => "nomina_capoclan"}, :params => {:id => @var}, :method => :post, :style => 'width: 200px; ', :class => "btn btn-lg btn-primary" %>  <em style = "font-size: 14px;">
-    <em style = "font-size: 14px;">        Attenzione - La scelta sarà irreversibile </em> </dd>
+    <dd><%= button_to 'Nomina Capoclan', {:action => "nomina_capoclan"}, :params => {:id => @var}, :method => :post, :style => 'width: 200px; ', :class => "btn btn-lg btn-primary" %>
+    <em style = "font-size: 14px;">   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     Attenzione - La scelta sarà irreversibile </em> </dd>
 <% end %>
 
     </dl>
@@ -76,13 +85,11 @@
      </div>
 
 
-  <br/><br/><br/>
-  <br/>
-
 
 
 
 <footer class="footer">
+ <br/>
 
 <div>
 
