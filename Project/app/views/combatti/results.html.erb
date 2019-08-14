@@ -67,7 +67,7 @@
 	<TR><TD>Difesa Speciale:</b>&nbsp;&nbsp;<%= @u.difesaspec%> -0</TD></TR>
       </TABLE>
 </br>
-<%if (@u.livello != 0)%>
+<%if (@u.livello > 1)%>
 	<%@u.livello -= 1%>
 <%end%>
 <%if (@u.attacco != 0)%>
@@ -114,7 +114,7 @@
 	<TR><TD>Difesa Speciale:</b>&nbsp;&nbsp;<%= @u.difesaspec%> -0</TD></TR>
       </TABLE>
 </br>
-<%if (@u.livello != 0)%>
+<%if (@u.livello > 1)%>
 	<%@u.livello -= 1%>
 <%end%>
 <%if (@u.attacco != 0)%>
@@ -161,7 +161,7 @@
 	<TR><TD>Difesa Speciale:</b>&nbsp;&nbsp;<%= @u.difesaspec%> -0</TD></TR>
       </TABLE>
 </br>
-<%if (@u.livello != 0)%>
+<%if (@u.livello > 0)%>
 	<%@u.livello -= 1%>
 <%end%>
 <%if (@u.attacco != 0)%>
