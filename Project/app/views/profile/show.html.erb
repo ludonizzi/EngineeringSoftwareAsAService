@@ -1,7 +1,7 @@
 <div id="profile">
 <title>Profilo</title>
 
-
+<body>
 <h1>Profilo di <%=   @user.username %></h1>
 
 <div id = "content">
@@ -40,46 +40,86 @@
             <span class="none">Orco</span>
     <% end %>
 
-    <dd><b>Status Clan:</b> &nbsp;&nbsp;&nbsp;&nbsp; Da Inserire</dd>
+    </dd>
 
-  </dl>
+    <dd><b>Ruolo:</b> &nbsp;&nbsp;&nbsp;&nbsp; <%if @user.roles_mask == 1 %>
+                                                Membro
+
+                                                <%else %>
+
+                                                Capoclan
+
+                                                <%end %>
+
+                                                </dd>
+
+<br>
 
 
 <% if @var == current_user.id %>
      <span style="text-align:center;font-size: 1.7em;"><%= link_to "Cambia Impostazioni Utente", edit_user_registration_path %></span>
 
+<% elsif @var != current_user.id && current_user.roles_mask == 2 && User.find(@var).clan == current_user.clan  %>
+
+        <dd><%= button_to 'Nomina Capoclan', {:action => "nomina_capoclan"}, :params => {:id => @var}, :method => :post, :style => 'width: 200px; ', :class => "btn btn-lg btn-primary" %>
+        <em style = "font-size: 14px;">        Attenzione - La scelta sarà irreversibile </em> </dd>
+
+<% elsif current_user.roles_mask == 4  && User.find(@var).roles_mask != 2 %>
+    <dd><%= button_to 'Nomina Capoclan', {:action => "nomina_capoclan"}, :params => {:id => @var}, :method => :post, :style => 'width: 200px; ', :class => "btn btn-lg btn-primary" %>  <em style = "font-size: 14px;">
+    <em style = "font-size: 14px;">        Attenzione - La scelta sarà irreversibile </em> </dd>
 <% end %>
+
+    </dl>
+
+
 
      </div>
 
 
-
   <br/><br/><br/>
   <br/>
-</div>
+
+
 
 
 <footer class="footer">
 
+<div>
 
-<h1> Inventario</h1>
+<h1 id = "titoloStats";> Caratteristiche  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Equipaggiamento Difensivo</h1>
+
+<div id= "cont">
 
 <div class="center jumbotron">
 
-    <dd><b>Livello: </b>&nbsp;&nbsp;<%= @user.livello %></dd>
+    <dd style="float:left;"><b>Livello: </b>&nbsp;&nbsp;<%= @user.livello %></dd><br><br><br>
 
-    <dd><b>Attacco: </b>&nbsp;&nbsp;<%= @user.attacco%>  &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;<b>Attacco Speciale:</b>&nbsp;&nbsp;<%= @user.attaccospec%></dd>
+    <dd style="float:left;"><b>Attacco: </b>&nbsp;&nbsp;<%= @user.attacco%> </dd>
 
-    <dd><b>Difesa: </b>&nbsp;&nbsp;<%= @user.difesa %> &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;    <b>Difesa Speciale:</b>&nbsp;&nbsp;<%= @user.difesaspec %></dd>
+    <dd> <b>Attacco Speciale:</b>&nbsp;&nbsp;<%= @user.attaccospec%></dd><br><br>
 
-<br><br>
+    <dd style="float:left;"><b>Difesa: </b>&nbsp;&nbsp;<%= @user.difesa %> </dd>
 
-    </br>
-<b><h3>Seleziona il tuo Equipaggiamento Difensivo</h3></b>
-<br><br>
+    <dd> <b>Difesa Speciale:</b>&nbsp;&nbsp;<%= @user.difesaspec %></dd><br><br>
 
-<table width = 40% class="table table-borderless">
-<tr><td>
+
+
+</div>
+
+</div>
+
+
+
+<div id = "cont2">
+
+<div id = "ciao" class="center jumbotron">
+
+
+<table class="table table-borderless">
+
+<tr>
+<td>
+
 <%= form_for @user do |f| %>
   <%= f.label :att %>:
   <%= f.select :att, [["Spada"], ["Arco"], ["Mazza chiodata"]]%>
@@ -90,18 +130,40 @@
   <%= f.label :arm %>:
   <%= f.select :arm, [["Cotta di maglia"], ["Completo del viandante"], ["Armatura di diamante"]]%>
 
-  <%= f.submit  'Salva modifiche!',class: "btn"%>
+  <%= f.submit  'Salva modifiche!',class: "btn btn-lg btn-primary"%>
 <% end %>
-</td></tr>
+
+</td>
+</tr>
 </table>
 
 </div>
 
-<footer class="footer">
 
-<br><br>
-<h1 id = "titoloStats"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Statistiche &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Ultimi Incontri</h1>
+</div>
 
+
+</div>
+
+
+<br/><br/><br/>
+  <br/>
+  <br/><br/><br/>
+  <br/>
+
+<br/><br/><br/>
+  <br/>
+  <br/><br/><br/>
+  <br/><br/><br/>
+  <br/>
+
+
+<footer class="footer"></footer>
+
+ <br/>
+
+
+<h1 id = "titoloStats"> &nbsp;Statistiche &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Ultimi Incontri</h1>
 
 <div id = "stats">
 
@@ -116,7 +178,7 @@
         current_user.vittorie/1
     else
         (((current_user.vittorie.to_f)/(current_user.sconfitte.to_f))*100).round / 100.0
-        end%>
+        end%> </dd>
 
 </div>
 
@@ -135,5 +197,11 @@
 </div>
 
 </div>
+
+
+
+</div>
+
+</body>
 
 

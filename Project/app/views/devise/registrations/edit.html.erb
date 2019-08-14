@@ -59,16 +59,6 @@
             <%= f.text_field(:status, class: 'form-control') %> <br/>
             </div>
 
-    <%if @current_user.roles_mask == 2%>
-        <div class="field">
-          <h3>Status Clan</h3>
-           <br/><br/>
-          <%= f.label :status_clan %>
-          <i>(lascia vuoto se non vuoi cambiarlo)</i>
-            <%= f.text_field(:status_clan, class: 'form-control') %> <br/>
-            </div>
-    <% end %>
-
         <h3>Conferma modifiche </h3>
         <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
             <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>

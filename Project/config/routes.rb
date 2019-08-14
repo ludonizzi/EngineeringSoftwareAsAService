@@ -20,6 +20,8 @@ Rails.application.routes.draw do
     get 'profile', :to => 'profile#index', :as => :user_root # Rails 3
   end
 
+  post 'nomina_capoclan' => 'profile#nomina_capoclan'
+
 
 
   root 'static_pages#home'

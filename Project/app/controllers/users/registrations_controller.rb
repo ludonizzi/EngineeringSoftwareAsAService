@@ -16,7 +16,17 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def create
     begin
       @user = User.new sign_up_params
-      Clan.find(@user.clan).membri +=1
+      @clan = Clan.find(@user.clan)
+      membri = @clan.membri
+
+      if @clan.membri == 0
+        @user.update_attributes(:roles_mask => 2)
+      end
+
+
+      @clan.update_attributes!(:membri => membri + 1)
+
+
 
     end
 

@@ -18,7 +18,7 @@
     scon = 0
     @users = User.all.order(created_at: :desc)
     @users.each do |user|
-    if @user.clan == 1
+    if user.clan == 1
         vitt = vitt + user.vittorie
         scon = scon + user.sconfitte
     end
@@ -122,10 +122,11 @@
     scon = 0
     @users = User.all.order(created_at: :desc)
     @users.each do |user|
-    if @user.clan == 2
+    if (user.clan == 2 )
         vitt = vitt + user.vittorie
         scon = scon + user.sconfitte
     end
+
     end %>
 
   <dd>  <b> Membri: </b> &nbsp;&nbsp;&nbsp;&nbsp; <%= @clan2.membri %></dd>
@@ -173,7 +174,7 @@
     scon = 0
     @users = User.all.order(created_at: :desc)
     @users.each do |user|
-    if @user.clan == 3
+    if user.clan == 3
         vitt = vitt + user.vittorie
         scon = scon + user.sconfitte
     end
