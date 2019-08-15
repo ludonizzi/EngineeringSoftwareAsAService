@@ -1,11 +1,15 @@
 <!DOCTYPE html>
+<% if flash[:error] != nil %>
+    <div class = "alert alert-danger"> <%= flash[:error] %> </div>
+<% end %>
 
 <html>
 <head>
 <title>War-Rails</title>
 </head>
 <body>
-<div class="center jumbotron">
+    <br>
+<div  class="center jumbotron">
 
   <h1>War-Rails</h1>
 

@@ -31,17 +31,34 @@ class ProfileController < ApplicationController
             end
 
             @user.update_attributes!(:roles_mask => 2)
-            redirect_to admin_path(current_user.id)
+            redirect_to profile_path(@var)
 
         else
             @user.update_attributes!(:roles_mask => 2)
             current_user.update_attributes!(:roles_mask => 1)
 
-
-
-            redirect_to profile_path(current_user.id)
+            redirect_to profile_path(@var)
         end
     end
 
+    def banna_utente
+        @var = params[:id]
+        @user = User.find(@var)
+
+        @user.update_attributes!(:ban_flag => 1)
+
+        redirect_to profile_path(@var)
+
+    end
+
+    def togli_ban
+        @var = params[:id]
+        @user = User.find(@var)
+
+        @user.update_attributes!(:ban_flag => 0)
+
+        redirect_to profile_path(@var)
+
+    end
 
 end

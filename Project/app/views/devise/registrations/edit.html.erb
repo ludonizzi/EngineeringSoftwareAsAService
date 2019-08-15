@@ -1,5 +1,6 @@
 <h1>Modifica Impostazioni Utente </h1>
 
+
 <div class="row">
 
 
@@ -19,16 +20,8 @@
             <%= f.label :cognome %>*<br/>
             <%= f.text_field :cognome, autofocus: true, autocomplete: "cognome" , class: 'form-control' %>
 
-            <%= f.label :data_nascita %>*<br/>
-            <%= f.date_field :data_nascita, autofocus: true, autocomplete: "data_nascita" , class: 'form-control' %>
-
-
             <%= f.label :email %>*<br/>
             <%= f.email_field :email, autofocus: true, autocomplete: "email" , class: 'form-control' %>
-
-            <%= f.label :status %>*<br/>
-            <%= f.text_field :status, autofocus: true, autocomplete: "status" , class: 'form-control' %>
-
 
 
           <br/><br/>
@@ -83,7 +76,7 @@
 
         <footer class="footer">
 
-        <p><%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete , :class=> "btn btn-lg btn-primary" ,style: " background-color:#dc143c; "%></p>
+        <p><%= button_to "Cancella Account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete , :class=> "btn btn-lg btn-primary" ,style: " background-color:#dc143c; "%></p>
 
         <%= link_to "Back", :back %>
 
@@ -94,3 +87,6 @@
     </div>
 
 </div>
+
+
+

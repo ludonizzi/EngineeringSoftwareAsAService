@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_08_115704) do
+ActiveRecord::Schema.define(version: 2019_08_15_114633) do
 
   create_table "clans", force: :cascade do |t|
     t.string "nome"
@@ -54,6 +54,7 @@ ActiveRecord::Schema.define(version: 2019_08_08_115704) do
     t.string "att", default: "Spada"
     t.string "def", default: "Scudo di ferro"
     t.string "arm", default: "Cotta di maglia"
+    t.integer "ban_flag", default: 0
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

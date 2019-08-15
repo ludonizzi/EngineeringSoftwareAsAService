@@ -1,6 +1,33 @@
 <div id="profile">
 <title>Profilo</title>
 
+<style>
+
+.button1 {
+  background-color:#ffa500;
+  color: white;
+}
+
+.button1:hover {
+  background-color: #ffa500;
+  filter: brightness(85%);
+  color: white;
+}
+
+
+.button2 {
+  background-color:#dc143c;
+  color: white;
+}
+
+.button2:hover {
+  background-color: #dc143c;
+  filter: brightness(85%);
+  color: white;
+}
+
+</style>
+
 <body>
 <h1>Profilo di <%=   @user.username %></h1>
 
@@ -42,16 +69,19 @@
 
     </dd>
 
-    <dd><b>Ruolo:</b> &nbsp;&nbsp;&nbsp;&nbsp; <%if @user.roles_mask == 1 %>
-                                                Membro
+    <dd><b>Ruolo:</b> &nbsp;&nbsp;&nbsp;&nbsp;
 
-                                                <%else %>
+    <%if @user.roles_mask == 1 %>
+                Membro
+    <%else %>
+            Capoclan
+    <%end %>
 
-                                                Capoclan
+    </dd>
 
-                                                <%end %>
-
-                                                </dd>
+       <% if User.find(@var).ban_flag == 1%>
+           <b>  Questo Utente è stato bannato dall' Admin</b>
+        <%end%>
 
 <br>
 
@@ -59,32 +89,52 @@
 <% if @var == current_user.id %>
      <span style="text-align:center;font-size: 1.7em;"><%= link_to "Cambia Impostazioni Utente", edit_user_registration_path %></span>
 
+
+
 <% elsif @var != current_user.id && current_user.roles_mask == 2 && User.find(@var).clan == current_user.clan  %>
 
-        <dd><%= button_to 'Nomina Capoclan', {:action => "nomina_capoclan"}, :params => {:id => @var}, :method => :post, :style => 'width: 200px; ', :class => "btn btn-lg btn-primary" %>
-        <em style = "font-size: 14px;">     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-           Attenzione - La scelta sarà irreversibile </em> </dd>
+        <dd><%= button_to 'Nomina Capoclan', {:action => "nomina_capoclan"},  data: { confirm: "Are you sure?" }, :params => {:id => @var}, :method => :post, :style => 'width: 200px; ', :class => "btn btn-lg btn-primary" %>
+       </dd>
 
 <% elsif current_user.roles_mask == 4  && User.find(@var).roles_mask != 2 %>
-    <dd><%= button_to 'Nomina Capoclan', {:action => "nomina_capoclan"}, :params => {:id => @var}, :method => :post, :style => 'width: 200px; ', :class => "btn btn-lg btn-primary" %>
-    <em style = "font-size: 14px;">   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     Attenzione - La scelta sarà irreversibile </em> </dd>
+
+    <dd>
+    <table>
+    <tr>
+    <th ><%= button_to 'Nomina Capoclan', {:action => "nomina_capoclan"},  data: { confirm: "Are you sure?" }, :params => {:id => @var}, :method => :post, :style => 'width: 200px; display:inline;', :class => "btn btn-lg btn-primary" %></th>
+
+    <% if User.find(@var).ban_flag == 0%>
+    <th><%= button_to "Banna Account", {:action => "banna_utente"}, data: { confirm: "Are you sure?" }, :params => {:id => @var}, method: :post , :class=> "btn btn-lg btn-primary button1"  ,style: " width: 200px;   "%></th>
+    <%else%>
+    <th><%= button_to "Togli Ban", {:action => "togli_ban"}, data: { confirm: "Are you sure?" }, :params => {:id => @var}, method: :post , :class=> "btn btn-lg btn-primary button1"  ,style: " width: 200px;  "%></th>
+    <% end %>
+
+    <th><%= button_to "Cancella Account", registration_path(User.find(@var)), data: { confirm: "Are you sure?" }, method: :delete , :class=> "btn btn-lg btn-primary button2" ,style: " width: 200px; "%> </th>
+    </tr>
+    </table>
+    </dd>
+
+    <% elsif  current_user.roles_mask == 4  && User.find(@var).roles_mask == 2 %>
+
+     <table>
+    <tr>
+
+    <% if User.find(@var).ban_flag == 0%>
+    <th><%= button_to "Banna Account", {:action => "banna_utente"}, data: { confirm: "Are you sure?" }, :params => {:id => @var}, method: :post , :class=> "btn btn-lg btn-primary button1"  ,style: " width: 200px;   "%></th>
+    <%else%>
+    <th><%= button_to "Togli Ban", {:action => "togli_ban"}, data: { confirm: "Are you sure?" }, :params => {:id => @var}, method: :post , :class=> "btn btn-lg btn-primary button1"  ,style: " width: 200px;  "%></th>
+    <% end %>
+
+    <th><%= button_to "Cancella Account", registration_path(User.find(@var)), data: { confirm: "Are you sure?" }, method: :delete , :class=> "btn btn-lg btn-primary button2" ,style: " width: 200px;  "%> </th>
+    </tr>
+    </table>
+
 <% end %>
+
 
     </dl>
 
-
-
      </div>
-
-
 
 
 
