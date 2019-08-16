@@ -16,6 +16,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def create
     begin
       @user = User.new sign_up_params
+
+      #CON IL BUG DELLA REGISTRAZIONE NON FA LA PARTE SOTTO E QUINDI NON NOMINA IL CAPOCLAN
+
       @clan = Clan.find(@user.clan)
       membri = @clan.membri
 
@@ -23,8 +26,19 @@ class Users::RegistrationsController < Devise::RegistrationsController
         @user.update_attributes(:roles_mask => 2)
       end
 
+        variabile = 0
+      @users = User.all.order(created_at: :desc)
 
-      @clan.update_attributes!(:membri => membri + 1)
+      @users.each do |user|
+          if user.roles_mask == 2
+            variabile = 1
+          end
+      end
+
+      if variabile == 1
+        @user.update_attributes(:roles_mask => 2)
+      end
+
     end
 
     super do |resource|

@@ -6,7 +6,7 @@ class ClanController < ApplicationController
     end
 
     def update
-    @var = Integer(params[:id])
+        @var = Integer(params[:id])
         @clan = Clan.find(params[:id])
         @clan.update(status_clan: params[:clan][:status_clan])
 

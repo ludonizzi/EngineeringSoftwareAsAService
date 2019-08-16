@@ -109,7 +109,7 @@
     <th><%= button_to "Togli Ban", {:action => "togli_ban"}, data: { confirm: "Are you sure?" }, :params => {:id => @var}, method: :post , :class=> "btn btn-lg btn-primary button1"  ,style: " width: 200px;  "%></th>
     <% end %>
 
-    <th><%= button_to "Cancella Account", registration_path(User.find(@var)), data: { confirm: "Are you sure?" }, method: :delete , :class=> "btn btn-lg btn-primary button2" ,style: " width: 200px; "%> </th>
+    <th><%= button_to "Cancella Account", admin_destroy_user_path(User.find(@var)), data: { confirm: "Are you sure?" }, method: :delete , :class=> "btn btn-lg btn-primary button2" ,style: " width: 200px; "%> </th>
     </tr>
     </table>
     </dd>
@@ -125,7 +125,7 @@
     <th><%= button_to "Togli Ban", {:action => "togli_ban"}, data: { confirm: "Are you sure?" }, :params => {:id => @var}, method: :post , :class=> "btn btn-lg btn-primary button1"  ,style: " width: 200px;  "%></th>
     <% end %>
 
-    <th><%= button_to "Cancella Account", registration_path(User.find(@var)), data: { confirm: "Are you sure?" }, method: :delete , :class=> "btn btn-lg btn-primary button2" ,style: " width: 200px;  "%> </th>
+   <th><%= button_to "Cancella Account", admin_destroy_user_path(User.find(@var)), data: { confirm: "Are you sure?" }, method: :delete , :class=> "btn btn-lg btn-primary button2" ,style: " width: 200px; "%> </th>
     </tr>
     </table>
 
@@ -245,9 +245,9 @@
 <div id="battlestats">
 
 <div class="center jumbotron">
-       <dd style="text-align:left;"><b><%= @current_user.username %></b> &nbsp;&nbsp; VS &nbsp;&nbsp; <b>Qualcosa</b>  &nbsp;&nbsp;  --> Vittoria </dd>
-        <dd style="text-align:left;"><b><%= @current_user.username %></b> &nbsp;&nbsp; VS &nbsp;&nbsp; <b>Qualcosa</b>  &nbsp;&nbsp;  --> Vittoria </dd>
-       <dd style="text-align:left;"><b><%= @current_user.username %></b> &nbsp;&nbsp; VS &nbsp;&nbsp; <b>Qualcosa</b>  &nbsp;&nbsp;  --> Vittoria </dd>
+       <dd style="text-align:left;"><b><%= @user.username %></b> &nbsp;&nbsp; VS &nbsp;&nbsp; <b>Qualcosa</b>  &nbsp;&nbsp;  --> Vittoria </dd>
+        <dd style="text-align:left;"><b><%= @user.username %></b> &nbsp;&nbsp; VS &nbsp;&nbsp; <b>Qualcosa</b>  &nbsp;&nbsp;  --> Vittoria </dd>
+       <dd style="text-align:left;"><b><%= @user.username %></b> &nbsp;&nbsp; VS &nbsp;&nbsp; <b>Qualcosa</b>  &nbsp;&nbsp;  --> Vittoria </dd>
 
 
         </dl>

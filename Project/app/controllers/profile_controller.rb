@@ -3,19 +3,25 @@ class ProfileController < ApplicationController
     before_action :authenticate_user!
 
     def show
+
         id = params[:id]
         @user= User.find(id)
-
         @var = @user.id
-        current_user.vittorie = @user.id
-        current_user.sconfitte = 5
+
     end
 
-    def index
-        redirect_to profile_path(current_user.id)
-    end
 
-    def new
+    def destroy
+        user = User.find(params[:id])
+
+        if current_user != user
+            if user.destroy
+                @clan = Clan.find(user.clan)
+                @clan.update_attributes!(:membri => @clan.membri - 1)
+            end
+        redirect_to admin_path(current_user.id)
+        end
+
     end
 
     def nomina_capoclan

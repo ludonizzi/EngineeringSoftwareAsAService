@@ -20,6 +20,8 @@ Rails.application.routes.draw do
   post 'banna_utente' => 'profile#banna_utente'
   post 'togli_ban' => 'profile#togli_ban'
 
+   match 'profile/:id' => 'profile#destroy', :via => :delete, :as => :admin_destroy_user
+
   root 'static_pages#home'
   get 'regolamento'    => 'static_pages#regolamento'
   get 'infoclan'    => 'static_pages#infoclan'
