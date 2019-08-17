@@ -21,7 +21,14 @@
             <%= f.label :cognome %>*<br/>
             <%= f.text_field :cognome, autofocus: true, autocomplete: "cognome" , class: 'form-control' %>
 
-            <%= f.label :email %>*<br/>
+            <br/><br/>
+
+
+            <h3>Modifica Email</h3>
+            <i>(non cambiare il campo testo se non vuoi cambiarla)</i>
+
+            <br/><br/>
+            <%= f.label :email %><br/>
             <%= f.email_field :email, autofocus: true, autocomplete: "email" , class: 'form-control' %>
 
 

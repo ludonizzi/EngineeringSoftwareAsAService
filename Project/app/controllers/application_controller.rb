@@ -8,13 +8,7 @@ class ApplicationController < ActionController::Base
     end
 
 
-    def after_update_path_for(current_user)
-        if current_user.roles_mask == 4
-            admin_path(current_user.id)
-        else
-            profile_path(current_user.id)
-        end
-    end
+
 
 
 
