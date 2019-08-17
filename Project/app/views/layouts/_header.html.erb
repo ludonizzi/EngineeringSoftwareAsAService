@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="container">
 
@@ -79,9 +80,9 @@
             <li><%= link_to "CONTATTI", contatti_path %></li>
       </ul>
       <ul class ="nav navbar-nav navbar-right">
-	<li><%= link_to "Sign up with Facebook", user_facebook_omniauth_authorize_path %></li>
-        <li><a href=register><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-    <li><a href=login><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+	<li><%= link_to fa_icon('facebook', text: "ACCEDI CON FACEBOOK"), user_facebook_omniauth_authorize_path %></li>
+        <li><a href=register><span class="glyphicon glyphicon-user"></span> SIGN UP</a></li>
+    <li><a href=login><span class="glyphicon glyphicon-log-in"></span> LOGIN</a></li>
       </ul>
     </nav>
 

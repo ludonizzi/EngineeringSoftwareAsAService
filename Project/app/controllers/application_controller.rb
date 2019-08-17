@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
         @current_user |= User.where(:id => session[:id])
     end
 
+
     def after_update_path_for(current_user)
         if current_user.roles_mask == 4
             admin_path(current_user.id)
@@ -14,6 +15,8 @@ class ApplicationController < ActionController::Base
             profile_path(current_user.id)
         end
     end
+
+
 
     def after_sign_up_path_for(current_user)
         profile_path(current_user.id)

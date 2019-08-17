@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <div id="profile">
 <title>Profilo</title>
 
@@ -37,6 +38,7 @@
 <%= image_tag(@user.img_profile, :style => "display: block; margin: 0px auto; width: 300px; height: 300px; cursor: pointer;", :alt => "logo")%>
 
 
+
   <dl>
   <dd> <b>Nome:</b> &nbsp;&nbsp;&nbsp;&nbsp; <%=   @user.nome %></dd>
 
@@ -48,12 +50,56 @@
 
     <dd><b>Data Iscrizione:</b> &nbsp;&nbsp;&nbsp;&nbsp;<%= @user.created_at.strftime("%B, %e, %Y") %></dd>
 
+
+
     <dd><b>Status Personale:</b> &nbsp;&nbsp;&nbsp;&nbsp;
     <% if (@user.status.blank?) %>
-           <span class="none">Non Inserito</span>
-    <%else %>
-    <%= @user.status %></dd>
+           <span class="none">Non Inserito &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+    <% if current_user.roles_mask == 4 %>
+
+           <% if @user.clan == 1 %>
+            <p style = "display:inline; font-size: 18px;"><%= link_to "Modifica", edit_editstatus_path(@var) %></p>
+
+        <% elsif @user.clan == 2 %>
+            <p style = "display:inline; font-size: 18px;"><%= link_to "Modifica", edit_editstatus_path(@var) %></p>
+
+        <% else %>
+            <p style = "display:inline; font-size: 18px;"><%= link_to "Modifica", edit_editstatus_path(@var) %></p>
+
+        <% end %>
     <% end %>
+
+        </span>
+
+
+    <%else %>
+
+    <%= @user.status %>
+
+     <% if current_user.roles_mask == 4 %>
+
+        <% if @user.clan == 1 %>
+            <p style = "display:inline; font-size: 18px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to "Modifica", edit_editstatus_path(@var) %></p>
+
+        <% elsif @user.clan == 2 %>
+            <p style = "display:inline; font-size: 18px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to "Modifica", edit_editstatus_path(@var) %></p>
+
+        <% else %>
+            <p style = "display:inline; font-size: 18px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to "Modifica", edit_editstatus_path(@var) %></p>
+
+        <% end %>
+
+    <% end %>
+
+     <% end %>
+
+
+    </dd>
+
+
+
+
 
     <dd><b>Clan: </b> &nbsp;&nbsp;&nbsp;&nbsp;
     <% if (@user.clan==1) %>
@@ -69,6 +115,9 @@
 
     </dd>
 
+
+
+
     <dd><b>Ruolo:</b> &nbsp;&nbsp;&nbsp;&nbsp;
 
     <%if @user.roles_mask == 1 %>
@@ -79,11 +128,17 @@
 
     </dd>
 
+
+
+
+
        <% if User.find(@var).ban_flag == 1%>
            <b>  Questo Utente è stato bannato dall' Admin</b>
         <%end%>
 
 <br>
+
+
 
 
 <% if @var == current_user.id %>
@@ -104,25 +159,33 @@
     <th ><%= button_to 'Nomina Capoclan', {:action => "nomina_capoclan"},  data: { confirm: "Are you sure?" }, :params => {:id => @var}, :method => :post, :style => 'width: 200px; display:inline;', :class => "btn btn-lg btn-primary" %></th>
 
     <% if User.find(@var).ban_flag == 0%>
-    <th><%= button_to "Banna Account", {:action => "banna_utente"}, data: { confirm: "Are you sure?" }, :params => {:id => @var}, method: :post , :class=> "btn btn-lg btn-primary button1"  ,style: " width: 200px;   "%></th>
+        <th><%= button_to "Banna Account", {:action => "banna_utente"}, data: { confirm: "Are you sure?" }, :params => {:id => @var}, method: :post , :class=> "btn btn-lg btn-primary button1"  ,style: " width: 200px;   "%></th>
+
     <%else%>
-    <th><%= button_to "Togli Ban", {:action => "togli_ban"}, data: { confirm: "Are you sure?" }, :params => {:id => @var}, method: :post , :class=> "btn btn-lg btn-primary button1"  ,style: " width: 200px;  "%></th>
+        <th><%= button_to "Togli Ban", {:action => "togli_ban"}, data: { confirm: "Are you sure?" }, :params => {:id => @var}, method: :post , :class=> "btn btn-lg btn-primary button1"  ,style: " width: 200px;  "%></th>
+
     <% end %>
+
+
 
     <th><%= button_to "Cancella Account", admin_destroy_user_path(User.find(@var)), data: { confirm: "Are you sure?" }, method: :delete , :class=> "btn btn-lg btn-primary button2" ,style: " width: 200px; "%> </th>
     </tr>
     </table>
     </dd>
 
-    <% elsif  current_user.roles_mask == 4  && User.find(@var).roles_mask == 2 %>
+
+
+<% elsif  current_user.roles_mask == 4  && User.find(@var).roles_mask == 2 %>
 
      <table>
     <tr>
 
     <% if User.find(@var).ban_flag == 0%>
-    <th><%= button_to "Banna Account", {:action => "banna_utente"}, data: { confirm: "Are you sure?" }, :params => {:id => @var}, method: :post , :class=> "btn btn-lg btn-primary button1"  ,style: " width: 200px;   "%></th>
+        <th><%= button_to "Banna Account", {:action => "banna_utente"}, data: { confirm: "Are you sure?" }, :params => {:id => @var}, method: :post , :class=> "btn btn-lg btn-primary button1"  ,style: " width: 200px;   "%></th>
+
+
     <%else%>
-    <th><%= button_to "Togli Ban", {:action => "togli_ban"}, data: { confirm: "Are you sure?" }, :params => {:id => @var}, method: :post , :class=> "btn btn-lg btn-primary button1"  ,style: " width: 200px;  "%></th>
+        <th><%= button_to "Togli Ban", {:action => "togli_ban"}, data: { confirm: "Are you sure?" }, :params => {:id => @var}, method: :post , :class=> "btn btn-lg btn-primary button1"  ,style: " width: 200px;  "%></th>
     <% end %>
 
    <th><%= button_to "Cancella Account", admin_destroy_user_path(User.find(@var)), data: { confirm: "Are you sure?" }, method: :delete , :class=> "btn btn-lg btn-primary button2" ,style: " width: 200px; "%> </th>
@@ -135,6 +198,8 @@
     </dl>
 
      </div>
+
+
 
 
 
@@ -203,16 +268,8 @@
 </div>
 
 
-<br/><br/><br/>
-  <br/>
-  <br/><br/><br/>
-  <br/>
 
-<br/><br/><br/>
-  <br/>
-  <br/><br/><br/>
-  <br/><br/><br/>
-  <br/>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
 
 <footer class="footer"></footer>
@@ -240,6 +297,8 @@
 </div>
 
 </div>
+
+
         <dl>
 
 <div id="battlestats">

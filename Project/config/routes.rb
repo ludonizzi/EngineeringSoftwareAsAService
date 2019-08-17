@@ -14,6 +14,8 @@ Rails.application.routes.draw do
 
     resources :clan
 
+    resources :editstatus
+
     resources :profile
 
   post 'nomina_capoclan' => 'profile#nomina_capoclan'
