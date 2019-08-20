@@ -21,7 +21,7 @@
 					user.vittorie/1
 
 				else
-					(((user.vittorie.to_f)/(user.sconfitte.to_f))*100).round / 100.0
+					@ratio = (((user.vittorie.to_f)/(user.sconfitte.to_f))*100).round / 100.0
 				end%></td></tr>
 				<% end %>
 
@@ -33,7 +33,7 @@
 					user.vittorie/1
 
 				else
-					(((user.vittorie.to_f)/(user.sconfitte.to_f))*100).round / 100.0
+					@ratio = (((user.vittorie.to_f)/(user.sconfitte.to_f))*100).round / 100.0
 				end%></td></tr>
 				<% end %>
 
@@ -45,7 +45,7 @@
 					user.vittorie/1
 
 				else
-					(((user.vittorie.to_f)/(user.sconfitte.to_f))*100).round / 100.0
+					@ratio = (((user.vittorie.to_f)/(user.sconfitte.to_f))*100).round / 100.0
 				end%></td></tr>
 				<% end %>
 
