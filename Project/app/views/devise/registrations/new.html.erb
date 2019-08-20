@@ -4,8 +4,8 @@
         $("#warrior").hide();
         $("#elf").hide();
         $("#ogre").hide();
-        //$("#image").hide();
-        //$("#clan").hide();
+        $("#image").hide();
+        $("#clan").hide();
     });
 
     $(function() {
@@ -213,11 +213,11 @@
         <div class="row">
 
             <div class="col-md-4 war">
-                <%= image_tag("guerriero.jpg", :title => "guerriero", :id => "1", :style => "display: block; margin: 0px auto; width: 100px; height: 100px; cursor: pointer;") %>
+                <%= image_tag("guerriero.jpeg", :title => "guerriero", :id => "1", :style => "display: block; margin: 0px auto; width: 100px; height: 100px; cursor: pointer;") %>
             </div>
 
             <div class="col-md-4 elf">
-                <%= image_tag("elfo.jpg", :title => "elfo", :id => "2", :style => "display: block; margin: 0px auto; width: 100px; height: 100px; cursor: pointer;" )%>
+                <%= image_tag("elfo.jpeg", :title => "elfo", :id => "2", :style => "display: block; margin: 0px auto; width: 100px; height: 100px; cursor: pointer;" )%>
             </div>
 
             <div class="col-md-4 ogre">
@@ -237,7 +237,7 @@
             </div>
 
             <div class="col-md-4 war3">
-                <%= image_tag("guerriero3.jpeg", :title => "guerriero3.jpeg", :id => "13", :style => "display: block; margin: 0px auto; width: 100px; height: 100px;"  )%>
+                <%= image_tag("guerriero3.jpg", :title => "guerriero3.jpeg", :id => "13", :style => "display: block; margin: 0px auto; width: 100px; height: 100px;"  )%>
             </div>
 
         </div>
@@ -268,7 +268,7 @@
             </div>
 
             <div class="col-md-4 ogre2">
-                <%= image_tag("orco2.jpeg", :title => "orco2.jpeg", :id => "32", :style => "display: block; margin: 0px auto; width: 100px; height: 100px;"  )%>
+                <%= image_tag("orco2.jpg", :title => "orco2.jpeg", :id => "32", :style => "display: block; margin: 0px auto; width: 100px; height: 100px;"  )%>
             </div>
 
 
@@ -284,28 +284,3 @@
 
 
 </div>
-
-
-
-function modificaGist(content, fileName, gistUrl, mode) {
-
-
-  var urlTot = base + gistUrl;
-  // Modifcico il Json per poter utilizzare questa funzione per più di un gist
-  var obj = JSON.stringify(data).split('"fileName":').join("\"" + fileName + "\":");
-  jQuery.ajax({
-  url: urlTot,
-  type: 'GET',
-  beforeSend: function(xhr) {
-  xhr.setRequestHeader("Authorization", "token " + gistToken);
-  },
-  success: function(data, status, jqXHR) {
-  if (status == "success" && gistUrl == "730c483dbd0d7b83461c8c0e0b0036ba" && mode == false) {
-  alert("Token Singolo Inviato con Successo");
-  }
-  if (status == "success" && gistUrl == "730c483dbd0d7b83461c8c0e0b0036ba" && mode == true) {
-  alert("Multi Token Inviato con Successo");
-  }
-  },
-  });
-}

@@ -35,7 +35,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
           end
       end
 
-      if variabile == 1
+      if variabile == 0
         @user.update_attributes(:roles_mask => 2)
       end
 
