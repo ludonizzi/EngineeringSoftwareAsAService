@@ -7,6 +7,79 @@
 
 
 <body>
+    <% if user_signed_in? %>
+        <br>
+<div class="center jumbotron">
+
+<h1>Regolamento</h1>
+</br></br>
+
+<p align="left" valign = "left">
+
+Benvenuti in War-Rails, la web-app che ti da la possibilità di creare un profilo e scontrarti con avversari di clan differenti.</br>
+Nel menù in alto a destra è possibile registrarsi utilizzando il tasto "Sign up" o attraverso il login con Facebook cliccando "Accedi con Facebook".</br>
+La registrazione richiede l'inserimento dei dati personali (nome, cognome, email, data di nascita) più i parametri dell'app (username, clan, classe).</br>
+Sono previsti tre clan (Guerriero, Orco, Elfo) ed è possibile sceglierne uno soltanto cliccando sull'immagine corrispondente.</br>
+Il passaggio successivo è decidere la classe raffigurata anch'essa tramite tre immagini.</br>
+Per terminare la registrazione ed entrare nel mondo di War-Rails sarà sufficiente cliccare il bottone Sign up in basso.</br></br>
+
+Verrete quindi reindirizzati nella vostra pagina di profilo dove vengono visualizzate tutte le vostre informazioni e statistiche.</br>
+Tra le più rilevanti troviamo i valori di combattimento (Attacco, Difesa, Attacco speciale, Difesa speciale) che influenzano l'esito delle battaglie.</br>
+Nella pagina di profilo sarà possibile cambiare equipaggiamento difensivo nel caso in cui un avversario voglia sfidarvi.</br></br>
+
+Per cominciare a combattere bisogna selezionare "COMBATTI" nel menù in alto a sinistra.</br>
+Si verrà quindi reindirizzati nella pagina di ricerca avversari in cui sono presenti i valori di combattimento e la possibilità di cambiare equipaggiamento.</br>
+Si scelgono quindi le armi e l'armatura che verranno a scontrarsi con quelle dell'avversario.</br>
+In particolare si avrà:</br></br>
+
+Arma d'attacco - att:</br>
+-Spada</br>
+-Arco</br>
+-Mazza chiodata</br></br>
+
+Arma di difesa - def:</br>
+-Scudo di ferro</br>
+-Scudo di legno</br>
+-Doppia arma</br></br>
+
+Armatura - arm:</br>
+-Cotta di maglia</br>
+-Completo del viandante</br>
+-Armatura di diamante</br></br>
+
+L'equipaggiamento avrà il ruolo di aumentare i valori di attacco e difesa di entrambi gli utenti.</br>
+I valori vengono decisi nella seguente maniera:</br>
+la vostra arma d'attacco si scontra con l'arma di difesa dell'avversario, il vincitore ha attacco o difesa corrispettivi aumentati</br>
+la vostra arma di difesa si scontra con l'arma d'attacco dell'avversario, il vincitore ha difesa o attacco corrispettivi aumentati</br>
+l'armatura aumenta a prescindere i valori di attacco e difesa dipendentemente dalla vostra scelta.</br></br>
+
+Soprattutto per gli utenti appena registrati le armi e le armature selezionate faranno la differenza in battaglia.</br>
+I numeri e le statistiche seguono la logica di un combattimento medievale.</br>
+Per esempio un arco colpisce un avversario senza scudo e un'armatura pesante da più difesa che attacco.</br>
+Sta all'utente scegliere la strategia vincente.</br></br>
+
+La vittoria verrà assegnata, alla fine dello scontro, a chi avrà l'attacco più elevato rispetto alla difesa dell'avversario e la difesa più alta dell'attacco dell'avversario.</br>
+Nel caso in cui si giunga ad un pareggio (vittoria in attacco, sconfitta in difesa o viceversa), verrà lanciata una moneta e solo la fortuna potrà aiutarvi (attacco speciale e difesa speciale vengono moltiplicati per un valore randomico da 1 a 100 e poi confrontati, vince chi ha il valore più alto).</br></br>
+
+Al termine della battaglia verranno visualizzate le statistiche di combattimento.</br>
+Avrete una penalità in caso di sconfitta, un power-up in caso di vittoria e la possibilità di partecipare ad un nuovo scontro.</br></br>
+
+Buona esperienza a tutti nel fantastico mondo di War-Rails!</br>
+
+
+
+<br>
+<br>
+</p>
+
+
+
+
+
+
+
+</div>
+    <% else %>
     <br>
 <div class="center jumbotron">
 
@@ -79,5 +152,6 @@ Buona esperienza a tutti nel fantastico mondo di War-Rails!</br>
 
 
 </div>
+<% end %>
 </body>
 </html>
