@@ -3,7 +3,7 @@ class ClassificaCAdminController < ApplicationController
     @var = Integer(params[:id])
     @contatore = 0
 
-    @users = User.all.order(created_at: :desc)
+    @users = User.all.order(vittorie: :desc, sconfitte: :desc)
 
 
   end
