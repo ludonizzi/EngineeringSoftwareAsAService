@@ -251,8 +251,11 @@
 
   <%= f.label :arm %>:
   <%= f.select :arm, [["Cotta di maglia"], ["Completo del viandante"], ["Armatura di diamante"]]%>
-
-  <%= f.submit  'Salva modifiche!',class: "btn btn-lg btn-primary"%>
+    <% if current_user == User.find(@var) %>
+        <%= f.submit  'Salva modifiche!',class: "btn btn-lg btn-primary"%>
+    <% else %>
+        
+    <% end %>
 <% end %>
 
 </td>
