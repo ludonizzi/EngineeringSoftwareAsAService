@@ -18,6 +18,7 @@ Rails.application.routes.draw do
 
     resources :profile
 
+  post 'cambia_immagine' => 'profile#cambia_immagine'
   post 'nomina_capoclan' => 'profile#nomina_capoclan'
   post 'banna_utente' => 'profile#banna_utente'
   post 'togli_ban' => 'profile#togli_ban'

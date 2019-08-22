@@ -37,6 +37,15 @@
 
 <%= image_tag(@user.img_profile, :style => "display: block; margin: 0px auto; width: 300px; height: 300px; cursor: pointer;", :alt => "logo")%>
 
+<!-- Line breaks around the image.-->
+
+
+
+
+
+
+<!-- <a style="font-size:24px;" href="register" >Cambia immagine </a> -->
+
 
 
   <dl>
@@ -168,6 +177,7 @@
 
 
 
+
     <th><%= button_to "Cancella Account", admin_destroy_user_path(User.find(@var)), data: { confirm: "Are you sure?" }, method: :delete , :class=> "btn btn-lg btn-primary button2" ,style: " width: 200px; "%> </th>
     </tr>
     </table>
@@ -194,6 +204,14 @@
 
 <% end %>
 
+
+</address>"
+
+
+
+</br>
+<dd><%= button_to 'Cambia immagine', {:action => "cambia_immagine"},  data: { confirm: "Are you sure?" }, :params => {:id => @var}, :method => :post, :style => 'width: 200px; ', :class => "btn btn-lg btn-primary" %>
+</dd>
 
     </dl>
 
@@ -319,5 +337,3 @@
 </div>
 
 </body>
-
-

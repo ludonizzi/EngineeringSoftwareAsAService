@@ -67,4 +67,41 @@ class ProfileController < ApplicationController
 
     end
 
+    def cambia_immagine
+        @var = params[:id]
+        @user = User.find(@var)
+
+        if current_user.img_profile == "guerriero.jpeg"
+            current_user.update_attributes!(:img_profile => "guerriero1.jpeg")
+        elsif current_user.img_profile == "guerriero1.jpeg"
+            current_user.update_attributes!(:img_profile => "guerriero2.jpeg")
+        elsif current_user.img_profile == "guerriero2.jpeg"
+            current_user.update_attributes!(:img_profile => "guerriero3.jpg")
+        elsif current_user.img_profile == "guerriero3.jpg"
+            current_user.update_attributes!(:img_profile => "guerriero1.jpeg")
+
+
+        elsif current_user.img_profile == "elfo.jpeg"
+            current_user.update_attributes!(:img_profile => "elfo1.jpeg")
+        elsif current_user.img_profile == "elfo1.jpeg"
+            current_user.update_attributes!(:img_profile => "elfo2.jpeg")
+        elsif current_user.img_profile == "elfo2.jpeg"
+            current_user.update_attributes!(:img_profile => "elfo3.jpeg")
+        elsif current_user.img_profile == "elfo3.jpeg"
+            current_user.update_attributes!(:img_profile => "elfo1.jpeg")
+
+
+          elsif current_user.img_profile == "orco.jpg"
+              current_user.update_attributes!(:img_profile => "orco1.jpeg")
+          elsif current_user.img_profile == "orco1.jpeg"
+              current_user.update_attributes!(:img_profile => "orco2.jpg")
+          elsif current_user.img_profile == "orco2.jpg"
+              current_user.update_attributes!(:img_profile => "orco3.jpeg")
+          elsif current_user.img_profile == "orco3.jpeg"
+              current_user.update_attributes!(:img_profile => "orco1.jpeg")
+        end
+
+        redirect_to profile_path(@var)
+    end
+
 end
