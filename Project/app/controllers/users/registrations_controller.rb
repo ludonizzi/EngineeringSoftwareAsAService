@@ -28,6 +28,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
       return
     end
 
+    test_clan =  User.find_by_username(params[:user][:clan])
+    if(test_clan)
+      flash.keep[:danger] = "Attenzione: Clan non selezionato"
+      redirect_to '/register'
+      return
+    end
+
     begin
       @user = User.new sign_up_params
 
