@@ -28,12 +28,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
       return
     end
 
-    test_clan =  User.find_by_username(params[:user][:clan])
-    if(test_clan)
+    test_clan = params[:user][:clan]
+    if(test_clan != 1 || test_clan != 2 || test_clan != 3)
       flash.keep[:danger] = "Attenzione: Clan non selezionato"
       redirect_to '/register'
       return
     end
+
 
     begin
       @user = User.new sign_up_params
@@ -47,7 +48,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
         @user.update_attributes(:roles_mask => 2)
       end
 
-        variabile = 0
+      variabile = 0
       @users = User.all.order(created_at: :desc)
 
       @users.each do |user|
