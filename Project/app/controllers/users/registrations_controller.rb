@@ -28,18 +28,26 @@ class Users::RegistrationsController < Devise::RegistrationsController
       return
     end
 
-    test_clan = params[:user][:clan]
-    if(test_clan != 1 || test_clan != 2 || test_clan != 3)
-      flash.keep[:danger] = "Attenzione: Clan non selezionato"
+    test_clan = (params[:user][:clan])
+    if test_clan == ""
+        flash.keep[:danger] = "Attenzione: Clan non selezionato"
       redirect_to '/register'
       return
+
+
+    else
+        test_clan = Integer(test_clan)
+        if(test_clan !=1 && test_clan != 2 && test_clan != 3)
+          flash.keep[:danger] = "Attenzione: Clan non selezionato"
+          redirect_to '/register'
+          return
+        end
     end
+
 
 
     begin
       @user = User.new sign_up_params
-
-      #CON IL BUG DELLA REGISTRAZIONE NON FA LA PARTE SOTTO E QUINDI NON NOMINA IL CAPOCLAN
 
       @clan = Clan.find(@user.clan)
       membri = @clan.membri
@@ -98,11 +106,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
         #redirect_to profile_path
     #end
 
-    #protected
+    protected
 
-    #def after_sign_up_path_for(resource)
-        #redirect_to profile_path
-    #end
+    def after_sign_up_path_for(current_user)
+        profile_path(current_user.id)
+    end
 
     protected
 

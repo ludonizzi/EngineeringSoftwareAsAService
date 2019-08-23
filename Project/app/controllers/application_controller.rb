@@ -8,10 +8,6 @@ class ApplicationController < ActionController::Base
     end
 
 
-    def after_sign_up_path_for(current_user)
-        profile_path(current_user.id)
-    end
-
     def after_sign_in_path_for(current_user)
         if current_user.roles_mask == 4
             admin_path(current_user.id)
