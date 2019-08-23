@@ -135,6 +135,10 @@
 
 <h1> Registrazione </h1>
 
+<% if flash[:danger] != nil %>
+    <div class = "alert alert-danger"> <%= flash[:danger] %> </div>
+<% end %>
+
 
 <div class="row">
 
@@ -274,7 +278,7 @@
 
 
             <div class="col-md-4 ogre1">
-                <%= image_tag("orco1.jpeg", :title => "orco3.jpeg", :id => "31", :style => "display: block; margin: 0px auto; width: 130px; height: 130px;" )%>
+                <%= image_tag("orco1.jpeg", :title => "orco1.jpeg", :id => "31", :style => "display: block; margin: 0px auto; width: 130px; height: 130px;" )%>
             </div>
 
             <div class="col-md-4 ogre2">

@@ -14,6 +14,20 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
 
   def create
+    test_username =  User.find_by_username(params[:user][:username])
+    if(test_username)
+      flash.keep[:danger] = "Attenzione: Username già in uso"
+      redirect_to '/register'
+      return
+    end
+
+    test_email =  User.find_by_username(params[:user][:email])
+    if(test_email)
+      flash.keep[:danger] = "Attenzione: Email già in uso"
+      redirect_to '/register'
+      return
+    end
+
     begin
       @user = User.new sign_up_params
 
