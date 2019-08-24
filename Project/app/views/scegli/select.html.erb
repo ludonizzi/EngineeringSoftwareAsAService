@@ -1,0 +1,234 @@
+<script type="text/javascript">
+
+    $('document').ready(function(){
+        $("#warrior").hide();
+        $("#elf").hide();
+        $("#ogre").hide();
+        $("#image").hide();
+        $("#clan").hide();
+    });
+
+    $(function() {
+          $("#1").click( function()
+               {
+                    var $imgvisible = $('.war img:visible');
+                    alert("Hai selezionato "+$imgvisible.attr('title'));
+                    $('#warrior').show();
+                    $("#elf").hide();
+                    $("#ogre").hide();
+                    $('#user_clan').val(1);
+
+               }
+          );
+
+          $("#2").click( function()
+               {
+                    var $imgvisible = $('.elf img:visible');
+                    alert("Hai selezionato "+$imgvisible.attr('title'));
+                    $('#elf').show();
+                    $("#ogre").hide();
+                    $("#warrior").hide();
+                    $('#user_clan').val(2);
+
+               }
+          );
+
+          $("#3").click( function()
+               {
+                    var $imgvisible = $('.ogre img:visible');
+                    alert("Hai selezionato "+$imgvisible.attr('title'));
+                    $('#ogre').show();
+                    $("#warrior").hide();
+                    $("#elf").hide();
+                    $('#user_clan').val(3);
+               }
+          );
+
+          $("#11").click( function()
+               {
+                    var $imgvisible = $('.war1 img:visible');
+                    alert("Hai selezionato "+$imgvisible.attr('title'));
+
+                     $('#user_img_profile').val($imgvisible.attr('title'));
+               }
+          );
+
+          $("#12").click( function()
+               {
+                    var $imgvisible = $('.war2 img:visible');
+                    alert("Hai selezionato "+$imgvisible.attr('title'));
+
+                     $('#user_img_profile').val($imgvisible.attr('title'));
+               }
+          );
+
+          $("#13").click( function()
+               {
+                    var $imgvisible = $('.war3 img:visible');
+                    alert("Hai selezionato "+$imgvisible.attr('title'));
+
+                     $('#user_img_profile').val($imgvisible.attr('title'));
+               }
+          );
+
+            $("#21").click( function()
+               {
+                    var $imgvisible = $('.elf1 img:visible');
+                    alert("Hai selezionato "+$imgvisible.attr('title'));
+
+                     $('#user_img_profile').val($imgvisible.attr('title'));
+               }
+          );
+
+          $("#22").click( function()
+               {
+                    var $imgvisible = $('.elf2 img:visible');
+                    alert("Hai selezionato "+$imgvisible.attr('title'));
+
+                     $('#user_img_profile').val($imgvisible.attr('title'));
+               }
+          );
+
+          $("#23").click( function()
+               {
+                    var $imgvisible = $('.elf3 img:visible');
+                    alert("Hai selezionato "+$imgvisible.attr('title'));
+
+                     $('#user_img_profile').val($imgvisible.attr('title'));
+               }
+          );
+
+            $("#31").click( function()
+               {
+                    var $imgvisible = $('.ogre1 img:visible');
+                    alert("Hai selezionato "+$imgvisible.attr('title'));
+
+                     $('#user_img_profile').val($imgvisible.attr('title'));
+               }
+          );
+
+          $("#32").click( function()
+               {
+                    var $imgvisible = $('.ogre2 img:visible');
+                    alert("Hai selezionato "+$imgvisible.attr('title'));
+
+                     $('#user_img_profile').val($imgvisible.attr('title'));
+               }
+          );
+
+          $("#33").click( function()
+               {
+                    var $imgvisible = $('.ogre3 img:visible');
+                    alert("Hai selezionato "+$imgvisible.attr('title'));
+
+                     $('#user_img_profile').val($imgvisible.attr('title'));
+
+               }
+          );
+
+
+
+    });
+
+
+</script>
+
+        <center><h1> <b> Scegli il tuo clan </b></h1></center>
+
+        <div class="row">
+
+            <div class="col-md-4 war">
+                <%= image_tag("guerriero.jpeg", :title => "guerriero", :id => "1", :style => "display: block; margin: 0px auto; width: 130px; height: 130px; cursor: pointer;") %>
+            </div>
+
+            <div class="col-md-4 elf">
+                <%= image_tag("elfo.jpeg", :title => "elfo", :id => "2", :style => "display: block; margin: 0px auto; width: 130px; height: 130px; cursor: pointer;" )%>
+            </div>
+
+            <div class="col-md-4 ogre">
+                <%= image_tag("orco.jpg", :title => "orco", :id => "3", :style => "display: block; margin: 0px auto; width: 130px; height: 130px; cursor: pointer;"  )%>
+            </div>
+
+        </div>
+        </br></br></br>
+        <div class="row" id="warrior">
+
+         <center> <h4>  <b>Scegli la tua immagine del profilo </b></h4> </center>
+
+            <div class="col-md-4 war1">
+
+                <%= image_tag("guerriero1.jpeg", :title => "guerriero1.jpeg", :id => "11", :style => "display: block; margin: 0px auto; width: 130px; height: 130px;") %>
+            </div>
+
+            <div class="col-md-4 war2">
+                <%= image_tag("guerriero2.jpeg", :title => "guerriero2.jpeg", :id => "12", :style => "display: block; margin: 0px auto; width: 130px; height: 130px;" )%>
+            </div>
+
+            <div class="col-md-4 war3">
+                <%= image_tag("guerriero3.jpg", :title => "guerriero3.jpg", :id => "13", :style => "display: block; margin: 0px auto; width: 130px; height: 130px;"  )%>
+            </div>
+
+        </div>
+
+          </br></br></br>
+        <div class="row" id="elf">
+
+         <center> <h4>  <b>Scegli la tua immagine del profilo </b></h4> </center>
+
+            <div class="col-md-4 elf1">
+                <%= image_tag("elfo1.jpeg", :title => "elfo1.jpeg", :id => "21", :style => "display: block; margin: 0px auto; width: 130px; height: 130px;"  )%>
+            </div>
+
+            <div class="col-md-4 elf2">
+                <%= image_tag("elfo2.jpeg",  :title => "elfo2.jpeg", :id => "22", :style => "display: block; margin: 0px auto; width: 130px; height: 130px;") %>
+            </div>
+
+            <div class="col-md-4 elf3">
+                <%= image_tag("elfo3.jpeg", :title => "elfo3.jpeg", :id => "23", :style => "display: block; margin: 0px auto; width: 130px; height: 130px;" )%>
+            </div>
+
+
+        </div>
+
+          </br></br></br>
+        <div class="row" id="ogre">
+
+         <center> <h4>  <b>Scegli la tua immagine del profilo </b></h4> </center>
+
+
+            <div class="col-md-4 ogre1">
+                <%= image_tag("orco1.jpeg", :title => "orco1.jpeg", :id => "31", :style => "display: block; margin: 0px auto; width: 130px; height: 130px;" )%>
+            </div>
+
+            <div class="col-md-4 ogre2">
+                <%= image_tag("orco2.jpg", :title => "orco2.jpeg", :id => "32", :style => "display: block; margin: 0px auto; width: 130px; height: 130px;"  )%>
+            </div>
+
+
+            <div class="col-md-4 ogre3">
+                <%= image_tag("orco3.jpeg",  :title => "orco3.jpeg", :id => "33", :style => "display: block; margin: 0px auto; width: 130px; height: 130px;") %>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="col-md-1">
+    </div>
+
+<%= form_for @user, url: profile_path(current_user.id) do |f| %>
+<div class="field" id = "image">
+                <%= f.label :img_profile %><br />
+                <%= f.text_field :img_profile, autofocus: true, class: 'form-control' %>
+              </div>
+
+              <div class="field" id="clan">
+                <%= f.label :clan %><br />
+                <%= f.number_field :clan, autofocus: true, class: 'form-control' %>
+              </div>
+
+              </br></br>
+
+              <div class="actions">
+                <%= f.submit "Sign up" , :class=> "btn btn-lg btn-primary"%>
+              </div>
+<%end%>

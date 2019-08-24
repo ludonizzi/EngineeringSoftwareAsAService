@@ -120,4 +120,12 @@ class ProfileController < ApplicationController
         redirect_to profile_path(@var)
     end
 
+
+	def update
+  		@user = User.find(params[:id])
+  		@user.update(clan: params[:user][:clan], img_profile: params[:user][:img_profile])
+		redirect_to profile_path(params[:id])
+	end
+
+
 end
