@@ -10,7 +10,11 @@ class CombattiController < ApplicationController
 	@max = User.maximum("id")
 	@id = current_user.id
 	@id2 = (Random.rand(1..20))
-	
+	if(User.exists?(id: @id2)==true)
+		if(User.find(@id2).clan == User.find(current_user.id).clan)
+			@id2 = 1
+		end	
+	end
         while (@id2 == 1 || @id2 > @max || @id2 == @id || User.exists?(id: @id2)==false) do
 		@id2 = (Random.rand(1..20))
 		if (User.exists?(id: @id2)==false)

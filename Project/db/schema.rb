@@ -55,7 +55,7 @@ ActiveRecord::Schema.define(version: 2019_08_15_114633) do
     t.string "def", default: "Scudo di ferro"
     t.string "arm", default: "Cotta di maglia"
     t.integer "ban_flag", default: 0
-    t.index ["email"], name: "index_users_on_email"
+    t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
