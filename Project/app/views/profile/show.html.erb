@@ -61,6 +61,10 @@
 
 
 
+
+
+
+
     <dd><b>Status Personale:</b> &nbsp;&nbsp;&nbsp;&nbsp;
     <% if (@user.status.blank?) %>
            <span class="none">Non Inserito &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -110,6 +114,9 @@
 
 
 
+
+
+
     <dd><b>Clan: </b> &nbsp;&nbsp;&nbsp;&nbsp;
     <% if (@user.clan==1) %>
             <span class="none">Guerriero</span>
@@ -123,6 +130,8 @@
     <% end %>
 
     </dd>
+
+
 
 
 
@@ -141,11 +150,17 @@
 
 
 
+
        <% if User.find(@var).ban_flag == 1%>
            <b>  Questo Utente è stato bannato dall' Admin</b>
         <%end%>
 
 <br>
+
+
+
+
+
 
 
 
@@ -220,6 +235,12 @@
 
 
 
+
+
+
+
+
+
 <footer class="footer">
  <br/>
 
@@ -246,6 +267,11 @@
 </div>
 
 </div>
+
+
+
+
+
 
 
 
@@ -292,6 +318,10 @@
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
 
+
+
+
+
 <footer class="footer"></footer>
 
  <br/>
@@ -321,12 +351,69 @@
 
         <dl>
 
+
+
+
+
 <div id="battlestats">
 
 <div class="center jumbotron">
-       <dd style="text-align:left;"><b><%= @user.username %></b> &nbsp;&nbsp; VS &nbsp;&nbsp; <b>Qualcosa</b>  &nbsp;&nbsp;  --> Vittoria </dd>
-        <dd style="text-align:left;"><b><%= @user.username %></b> &nbsp;&nbsp; VS &nbsp;&nbsp; <b>Qualcosa</b>  &nbsp;&nbsp;  --> Vittoria </dd>
-       <dd style="text-align:left;"><b><%= @user.username %></b> &nbsp;&nbsp; VS &nbsp;&nbsp; <b>Qualcosa</b>  &nbsp;&nbsp;  --> Vittoria </dd>
+
+
+
+    <%if Match.find_by(:user => @user.id) == nil %>
+        <dd style="text-align:left;"><b>Non ci sono partite recenti</b></dd>
+        <dd style="text-align:left;">&nbsp;</dd>
+        <dd style="text-align:left;">&nbsp;</dd>
+
+
+
+
+    <% elsif Match.where(:user => @user.id).count >= 3
+        @partita1 = Match.where(:user => @user.id).find_by(:flag => 1)
+        @partita2 = Match.where(:user => @user.id).find_by(:flag => 2)
+        @partita3 = Match.where(:user => @user.id).find_by(:flag => 3)
+
+    %>
+        <dd style="text-align:left;"><b><%= User.find(@partita1.user).username %></b> &nbsp;&nbsp; VS &nbsp;&nbsp; <b><%= User.find(@partita1.avversario).username  %></b>  &nbsp;&nbsp;  <% if @partita1.result == 1 %> --> Vittoria <%else %> --> Sconfitta <%end %></dd>
+        <dd style="text-align:left;"><b><%= User.find(@partita2.user).username  %></b> &nbsp;&nbsp; VS &nbsp;&nbsp; <b><%= User.find(@partita2.avversario).username  %></b>  &nbsp;&nbsp;  <% if @partita2.result == 1 %> --> Vittoria <%else %> --> Sconfitta <%end %></dd>
+        <dd style="text-align:left;"><b><%= User.find(@partita3.user).username  %></b> &nbsp;&nbsp; VS &nbsp;&nbsp; <b><%= User.find(@partita3.avversario).username  %></b>  &nbsp;&nbsp;  <% if @partita3.result == 1 %> --> Vittoria <%else %> --> Sconfitta <%end %></dd>
+
+
+
+
+
+    <% elsif Match.where(:user => @user.id).count == 2
+
+        @partita1 = Match.where(:user => @user.id).find_by(:flag => 1)
+        @partita2 = Match.where(:user => @user.id).find_by(:flag => 2)
+
+        %>
+
+
+
+        <dd style="text-align:left;"><b><%= User.find(@partita1.user).username  %></b> &nbsp;&nbsp; VS &nbsp;&nbsp; <b><%= User.find(@partita1.avversario).username  %></b>  &nbsp;&nbsp;  <% if @partita1.result == 1 %> --> Vittoria <%else %> --> Sconfitta <%end %></dd>
+        <dd style="text-align:left;"><b><%= User.find(@partita2.user).username  %></b> &nbsp;&nbsp; VS &nbsp;&nbsp; <b><%= User.find(@partita2.avversario).username  %></b>  &nbsp;&nbsp;  <% if @partita2.result == 1 %> --> Vittoria <%else %> --> Sconfitta <%end %></dd>
+        <dd style="text-align:left;">&nbsp;</dd>
+
+
+
+
+
+     <% else
+            @partita1 = Match.where(:user => @user.id).find_by(:flag => 1)
+        %>
+
+
+        <dd style="text-align:left;"><b><%= User.find(@partita1.user).username  %></b> &nbsp;&nbsp; VS &nbsp;&nbsp; <b><%= User.find(@partita1.avversario).username  %></b>  &nbsp;&nbsp;  <% if @partita1.result == 1 %> --> Vittoria <%else %> --> Sconfitta <%end %></dd>
+        <dd style="text-align:left;"> &nbsp;</dd>
+        <dd style="text-align:left;">&nbsp; </dd>
+
+
+        <%end%>
+
+
+
 
 
         </dl>
