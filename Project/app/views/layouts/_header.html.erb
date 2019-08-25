@@ -2,7 +2,12 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="container">
 
-  <% if user_signed_in? && current_user.roles_mask == 4 %>
+  <% if controller.controller_name == "scegli" %>
+
+
+
+
+  <% elsif user_signed_in? && current_user.roles_mask == 4 %>
 
   <nav>
       <ul class="nav navbar-nav pull-left">

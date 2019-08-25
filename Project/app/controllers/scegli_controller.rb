@@ -4,4 +4,10 @@ class ScegliController < ApplicationController
 		@user = User.find(current_user.id)
 	end
 
+
+
+  def help
+
+  end
+
 end
