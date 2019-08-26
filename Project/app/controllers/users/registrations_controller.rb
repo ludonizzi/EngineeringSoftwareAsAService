@@ -82,9 +82,21 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # PUT /resource
-  # def update
-  #   super
-  # end
+  def update
+    test_username =  User.find_by_username(params[:user][:username])
+    if(test_username)
+      flash.keep[:danger] = "Attenzione: Username già in uso"
+      redirect_to '/users/edit'
+      return
+    end
+
+    test_email =  User.find_by_username(params[:user][:email])
+    if(test_email)
+      flash.keep[:danger] = "Attenzione: Email già in uso"
+      redirect_to '/users/edit'
+      return
+    end
+  end
 
   # DELETE /resource
   # def destroy
@@ -125,7 +137,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_account_update_params
-    devise_parameter_sanitizer.permit(:account_update, keys: [:email, :password, :nome, :cognome, :status])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:email, :password, :nome, :cognome, :status, :username])
   end
 
   # The path used after sign up.

@@ -2,6 +2,12 @@
 
 <title> Modifica Utente </title>
 
+
+<% if flash[:danger] != nil %>
+    <div class = "alert alert-danger"> <%= flash[:danger] %> </div>
+<% end %>
+
+
 <div class="row">
 
 
@@ -37,6 +43,9 @@
 
           <h3>Nuova Password</h3>
           <i>(lascia vuoto se non vuoi cambiarla)</i><br/><br/>
+
+
+
 
 
           <div class="field">
