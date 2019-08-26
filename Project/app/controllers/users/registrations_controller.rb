@@ -21,7 +21,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       return
     end
 
-    test_email =  User.find_by_username(params[:user][:email])
+    test_email =  User.find_by_email(params[:user][:email])
     if(test_email)
       flash.keep[:danger] = "Attenzione: Email già in uso"
       redirect_to '/register'
@@ -80,21 +80,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # PUT /resource
-  def update
-    test_username =  User.find_by_username(params[:user][:username])
-    if(test_username)
-      flash.keep[:danger] = "Attenzione: Username già in uso"
-      redirect_to '/users/edit'
-      return
-    end
-
-    test_email =  User.find_by_username(params[:user][:email])
-    if(test_email)
-      flash.keep[:danger] = "Attenzione: Email già in uso"
-      redirect_to '/users/edit'
-      return
-    end
-  end
+  
 
   # DELETE /resource
   # def destroy
