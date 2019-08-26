@@ -21,6 +21,18 @@ class Users::RegistrationsController < Devise::RegistrationsController
       return
     end
 
+    if(params[:user][:nome] == "")
+      flash.keep[:danger] = "Attenzione: Nome non inserito"
+      redirect_to '/register'
+      return
+    end 
+
+    if(params[:user][:cognome] == "")
+      flash.keep[:danger] = "Attenzione: Cognome non inserito"
+      redirect_to '/register'
+      return
+    end 
+
     test_email =  User.find_by_email(params[:user][:email])
     if(test_email)
       flash.keep[:danger] = "Attenzione: Email già in uso"
@@ -28,12 +40,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
       return
     end
 
-    email_type = params[:user][:email].split('@')[1]
-    if(email_type != "gmail.com" && email_type != "hotmail.it" && email_type != "outlook.it")
-      flash.keep[:danger] = "Attenzione: Email non valida"
-      redirect_to '/register'
-      return
-    end
 
     test_clan = (params[:user][:clan])
     if test_clan == ""
@@ -93,13 +99,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
     current_email = params[:user][:email]
 
 
-    email_type = params[:user][:email].split('@')[1]
-
-    if(email_type != "gmail.com" && email_type != "hotmail.it" && email_type != "outlook.it")
-      flash.keep[:danger] = "Attenzione: Email non valida"
-      redirect_to edit_user_registration_path
-      return 
-    end
 
     if((current_email != current_user.email) && test_email)
       flash.keep[:danger] = "Attenzione: Email già in uso"
@@ -107,7 +106,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       return
 
     else
-      
+
       current_user.update_attributes!(:email => current_email)
       redirect_to session_path(resource_name)
     end
