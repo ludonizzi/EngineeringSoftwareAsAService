@@ -28,6 +28,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
       return
     end
 
+    email_type = params[:user][:email].split('@')[1]
+    if(email_type != "gmail.com" && email_type != "hotmail.it" && email_type != "outlook.it")
+      flash.keep[:danger] = "Attenzione: Email non valida"
+      redirect_to '/register'
+      return
+    end
+
     test_clan = (params[:user][:clan])
     if test_clan == ""
         flash.keep[:danger] = "Attenzione: Clan non selezionato"
@@ -80,6 +87,34 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # PUT /resource
+  def update
+
+    test_email =  User.find_by_email(params[:user][:email])
+    current_email = params[:user][:email]
+
+
+    email_type = params[:user][:email].split('@')[1]
+
+    if(email_type != "gmail.com" && email_type != "hotmail.it" && email_type != "outlook.it")
+      flash.keep[:danger] = "Attenzione: Email non valida"
+      redirect_to edit_user_registration_path
+      return 
+    end
+
+    if((current_email != current_user.email) && test_email)
+      flash.keep[:danger] = "Attenzione: Email già in uso"
+      redirect_to edit_user_registration_path
+      return
+
+    else
+      
+      current_user.update_attributes!(:email => current_email)
+      redirect_to session_path(resource_name)
+    end
+
+
+  end
+
   
 
   # DELETE /resource
@@ -116,12 +151,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # If you have extra params to permit, append them to the sanitizer.
    def configure_sign_up_params
-     devise_parameter_sanitizer.permit(:sign_up, keys: [:username, :nome, :cognome, :status, :data_nascita, :password, :img_profile, :clan])
+     devise_parameter_sanitizer.permit(:sign_up, keys: [:username, :nome, :cognome, :status, :password, :img_profile, :clan])
    end
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_account_update_params
-    devise_parameter_sanitizer.permit(:account_update, keys: [:email, :password, :nome, :cognome, :status, :username])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:email, :password, :status])
   end
 
   # The path used after sign up.
