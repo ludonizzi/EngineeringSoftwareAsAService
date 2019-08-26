@@ -10,13 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_15_114633) do
+ActiveRecord::Schema.define(version: 2019_08_25_144057) do
 
   create_table "clans", force: :cascade do |t|
     t.string "nome"
     t.integer "membri"
     t.integer "capoclan_id"
     t.text "status_clan"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "matches", force: :cascade do |t|
+    t.integer "user"
+    t.integer "avversario"
+    t.integer "result"
+    t.integer "flag", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

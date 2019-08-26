@@ -20,7 +20,7 @@ class User < ApplicationRecord
     user.cognome = auth.info.last_name
     user.email = auth.info.email
     user.img_profile = 'guerriero.jpg'
-    user.clan = 1
+    user.clan = nil
     user.password = Devise.friendly_token[0,20]
     user.save!
     # If you are using confirmable and the provider(s) you use validate emails,

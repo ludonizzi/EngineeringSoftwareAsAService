@@ -40,6 +40,29 @@
 
 
 <%if(@att >= @def2)&&(@def >= @att2)%>
+
+
+ <%
+        partita = Match.new(:user => @u.id, :avversario => @u2.id, :result => 1)
+        @user_matches = @matches.where(:user => @u.id)
+
+        @user_matches.each do |match|
+            if match.flag == 3
+                match.update_attributes!(:flag => 4)
+            elsif match.flag == 2
+                match.update_attributes!(:flag => 3)
+            elsif match.flag == 1
+                match.update_attributes!(:flag => 2)
+            end
+        end
+
+            partita.update_attributes!(:flag => 1)
+
+        %>
+
+
+
+
 <h1>HAI VINTO!!!</h1>
 </br>
 <TABLE class="table table-borderless" COLS=1 WIDTH="50%">
@@ -58,6 +81,30 @@
 
 
 <%elsif(@att < @def2)&&(@def < @att2)%>
+
+
+ <%
+
+        partita = Match.new(:user => @u.id, :avversario => @u2.id, :result => 0)
+        @user_matches = @matches.where(:user => @u.id)
+
+        @user_matches.each do |match|
+            if match.flag == 3
+                match.update_attributes!(:flag => 4)
+            elsif match.flag == 2
+                match.update_attributes!(:flag => 3)
+            elsif match.flag == 1
+                match.update_attributes!(:flag => 2)
+            end
+        end
+
+            partita.update_attributes!(:flag => 1)
+
+        %>
+
+
+
+
 <h1>HAI PERSO...</h1>
 </br>
 <TABLE class="table table-borderless" COLS=1 WIDTH="50%">
@@ -87,6 +134,29 @@
 
 <%elsif(@att >= @def2)&&(@def < @att2)%>
 	<%if(@u.difesaspec*(Random.rand(100)) >= @u2.attaccospec*(Random.rand(100)))%>
+
+
+
+     <%
+
+        partita = Match.new(:user => @u.id, :avversario => @u2.id, :result => 1)
+        @user_matches = @matches.where(:user => @u.id)
+
+        @user_matches.each do |match|
+            if match.flag == 3
+                match.update_attributes!(:flag => 4)
+            elsif match.flag == 2
+                match.update_attributes!(:flag => 3)
+            elsif match.flag == 1
+                match.update_attributes!(:flag => 2)
+            end
+        end
+
+            partita.update_attributes!(:flag => 1)
+
+        %>
+
+
 <h1>HAI VINTO!!!</h1>
 </br>
 <TABLE class="table table-borderless" COLS=1 WIDTH="50%">
@@ -105,6 +175,31 @@
 	<%@u.vittorie += 1%>
 
 	<%else%>
+
+
+
+     <%
+
+        partita = Match.new(:user => @u.id, :avversario => @u2.id, :result => 0)
+        @user_matches = @matches.where(:user => @u.id)
+
+        @user_matches.each do |match|
+            if match.flag == 3
+                match.update_attributes!(:flag => 4)
+            elsif match.flag == 2
+                match.update_attributes!(:flag => 3)
+            elsif match.flag == 1
+                match.update_attributes!(:flag => 2)
+            end
+        end
+
+            partita.update_attributes!(:flag => 1)
+             %>
+
+
+
+
+
 <h1>HAI PERSO...</h1>
 </br>
 <TABLE class="table table-borderless" COLS=1 WIDTH="50%">
@@ -136,6 +231,28 @@
 
 <%elsif(@att < @def2)&&(@def >= @att2)%>
 	<%if(@u.attaccospec*(Random.rand(100)) >= @u2.difesaspec*(Random.rand(100)))%>
+
+         <%
+
+        partita = Match.new(:user => @u.id, :avversario => @u2.id, :result => 1)
+        @user_matches = @matches.where(:user => @u.id)
+
+        @user_matches.each do |match|
+            if match.flag == 3
+                match.update_attributes!(:flag => 4)
+            elsif match.flag == 2
+                match.update_attributes!(:flag => 3)
+            elsif match.flag == 1
+                match.update_attributes!(:flag => 2)
+            end
+        end
+
+            partita.update_attributes!(:flag => 1)
+
+
+             %>
+
+
 <h1>HAI VINTO!!!</h1>
 </br>
 <TABLE class="table table-borderless" COLS=1 WIDTH="50%">
@@ -152,6 +269,28 @@
 	<%@u.difesaspec += 1%>
 	<%@u.vittorie += 1%>
 	<%else%>
+
+
+     <%
+         partita = Match.new(:user => @u.id, :avversario => @u2.id, :result => 0)
+        @user_matches = @matches.where(:user => @u.id)
+
+        @user_matches.each do |match|
+            if match.flag == 3
+                match.update_attributes!(:flag => 4)
+            elsif match.flag == 2
+                match.update_attributes!(:flag => 3)
+            elsif match.flag == 1
+                match.update_attributes!(:flag => 2)
+            end
+        end
+
+            partita.update_attributes!(:flag => 1)
+
+
+        %>
+
+
 <h1>HAI PERSO...</h1>
 </br>
 <TABLE class="table table-borderless" COLS=1 WIDTH="50%">

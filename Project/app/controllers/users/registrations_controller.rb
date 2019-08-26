@@ -45,34 +45,32 @@ class Users::RegistrationsController < Devise::RegistrationsController
     end
 
 
-
-    begin
-      @user = User.new sign_up_params
-
-      @clan = Clan.find(@user.clan)
-      membri = @clan.membri
-
-      if @clan.membri == 0
-        @user.update_attributes(:roles_mask => 2)
-      end
-
-      variabile = 0
-      @users = User.all.order(created_at: :desc)
-
-      @users.each do |user|
-          if user.roles_mask == 2
-            variabile = 1
-          end
-      end
-
-      if variabile == 0
-        @user.update_attributes(:roles_mask => 2)
-      end
-
-    end
-
     super do |resource|
-      resource.roles_mask = "1"
+
+         resource.roles_mask = "1"
+
+          @clan = Clan.find(resource.clan)
+          membri = @clan.membri
+          membri = membri + 1
+          @clan.update_attributes!(:membri => membri)
+
+          if @clan.membri == 0
+            resource.roles_mask = "2"
+          end
+
+          variabile = 0
+          @users = User.all.order(created_at: :desc)
+
+          @users.each do |user|
+              if user.roles_mask == 2
+                variabile = 1
+              end
+            end
+
+          if variabile == 0
+             resource.roles_mask = "2"
+          end
+
     end
   end
 

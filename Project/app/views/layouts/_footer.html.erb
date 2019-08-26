@@ -1,6 +1,9 @@
 
 
-<% if user_signed_in? && current_user.roles_mask != 4 %>
+<% if controller.controller_name == "scegli" %>
+
+
+<% elsif user_signed_in? && current_user.roles_mask != 4 %>
 <footer class="footer">
 
 

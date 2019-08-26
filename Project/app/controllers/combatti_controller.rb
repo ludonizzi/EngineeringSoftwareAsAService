@@ -13,7 +13,7 @@ class CombattiController < ApplicationController
 	if(User.exists?(id: @id2)==true)
 		if(User.find(@id2).clan == User.find(current_user.id).clan)
 			@id2 = 1
-		end	
+		end
 	end
         while (@id2 == 1 || @id2 > @max || @id2 == @id || User.exists?(id: @id2)==false) do
 		@id2 = (Random.rand(1..20))
@@ -29,12 +29,18 @@ class CombattiController < ApplicationController
     end
 
     def results
-	@u = $user
+        @u = $user
         @u2 = $user2
-	@att = 0
-	@def = 0
-	@att2 = 0
-	@def2 = 0
+
+
+        @matches = Match.all
+        @matches.where(:flag => 4).destroy_all
+
+
+        @att = 0
+        @def = 0
+        @att2 = 0
+        @def2 = 0
     end
 
 end
