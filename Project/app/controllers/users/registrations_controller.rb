@@ -97,7 +97,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
     test_email =  User.find_by_email(params[:user][:email])
     current_email = params[:user][:email]
+    current_password = params[:user][:password]
+    current_user.update_attributes!(:status => params[:user][:status])
 
+    if(current_password != "")
+      current_user.update_attributes!(:password => current_password)
+    end
 
 
     if((current_email != current_user.email) && test_email)
@@ -110,6 +115,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
       current_user.update_attributes!(:email => current_email)
       redirect_to session_path(resource_name)
     end
+
+
 
 
   end
