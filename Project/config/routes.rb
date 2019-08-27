@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 
+  get 'google_calendar/show'
   get 'infoc_admin/infoclan_admin'
   get 'classifica_c_admin/table_admin'
   get 'infoc/infoclan'
@@ -39,4 +40,10 @@ Rails.application.routes.draw do
   get 'combatti2' => 'combatti#postcomb'
   get 'scegliclan' => 'scegli#select'
   get 'risultato' => 'combatti#results'
+  get 'google_calendar' => 'google_calendar#show'
+
+  get '/google_calendar/calendar/redirect', to: 'google_calendar#redirect', as: 'redirect'
+  get '/google_calendar/calendar/callback', to: 'google_calendar#callback', as: 'callback'
+  get '/google_calendar/calendar/calendars', to: 'google_calendar#calendars', as: 'calendars'
+  get '/google_calendar/calendar/events/:calendar_id', to: 'google_calendar#events', as: 'events', calendar_id: /[^\/]+/
 end
