@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_25_144057) do
+ActiveRecord::Schema.define(version: 2019_08_26_110927) do
 
   create_table "clans", force: :cascade do |t|
     t.string "nome"
@@ -47,7 +47,6 @@ ActiveRecord::Schema.define(version: 2019_08_25_144057) do
     t.integer "vittorie", default: 0
     t.integer "sconfitte", default: 0
     t.string "status"
-    t.date "data_nascita"
     t.string "username"
     t.string "nome"
     t.string "cognome"
