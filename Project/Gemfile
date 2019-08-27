@@ -39,6 +39,8 @@ gem 'omniauth-facebook'
 gem 'mediawiki-butt'
 gem 'wikipedia-client'
 
+gem 'google-api-client', require: 'google/apis/calendar_v3'
+
 
 
 
