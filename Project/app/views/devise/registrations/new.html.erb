@@ -154,35 +154,34 @@
               <%= render "devise/shared/error_messages", resource: resource %>
 
 
-            </br>              
+            </br>
 
               <div class="field">
                 <%= f.label :username %><br />
                 <%= f.text_field :username, autofocus: true, class: 'form-control' %>
               </div>
 
-            </br>
 
               <div class="field">
                 <%= f.label :nome %><br />
                 <%= f.text_field :nome, autofocus: true, class: 'form-control' %>
               </div>
 
-              </br>
+
 
               <div class="field">
                 <%= f.label :cognome %><br />
                 <%= f.text_field :cognome, autofocus: true, class: 'form-control' %>
               </div>
 
-              </br>
+
 
               <div class="field">
                 <%= f.label :email %><br />
                 <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %>
               </div>
 
-              </br>
+
 
               <div class="field">
                 <%= f.label :password %>
@@ -192,15 +191,14 @@
                 <%= f.password_field :password, autocomplete: "new-password", class: 'form-control' %>
               </div>
 
-              </br>
+
 
               <div class="field">
                 <%= f.label :password_confirmation %><br />
                 <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control' %>
               </div>
 
-              </br>
-              
+
 
               <div class="field" id = "image">
                 <%= f.label :img_profile %><br />
@@ -212,7 +210,8 @@
                 <%= f.number_field :clan, autofocus: true, class: 'form-control' %>
               </div>
 
-              </br></br></br>
+
+            </br>
 
               <div class="actions">
                 <%= f.submit "Sign up" , :class=> "btn btn-lg btn-primary"%>

@@ -169,7 +169,7 @@
 
 <% if @var == current_user.id %>
      <span style="text-align:center;font-size: 1.7em;"><%= link_to "Cambia Impostazioni Utente", edit_user_registration_path %></span>
-   
+
 
 
 
@@ -297,7 +297,7 @@
 
   <%= f.label :arm %>:
   <%= f.select :arm, [["Cotta di maglia"], ["Completo del viandante"], ["Armatura di diamante"]]%>
-    <% if current_user == User.find(@var) %>
+    <% if current_user == User.find(@var) || current_user.roles_mask == 4 %>
         <%= f.submit  'Salva modifiche!',class: "btn btn-lg btn-primary"%>
     <% else %>
 
@@ -378,10 +378,24 @@
         @partita3 = Match.where(:user => @user.id).find_by(:flag => 3)
 
     %>
-        <dd style="text-align:left;"><b><%= User.find(@partita1.user).username %></b> &nbsp;&nbsp; VS &nbsp;&nbsp; <b><%= User.find(@partita1.avversario).username  %></b>  &nbsp;&nbsp;  <% if @partita1.result == 1 %> --> Vittoria <%else %> --> Sconfitta <%end %></dd>
-        <dd style="text-align:left;"><b><%= User.find(@partita2.user).username  %></b> &nbsp;&nbsp; VS &nbsp;&nbsp; <b><%= User.find(@partita2.avversario).username  %></b>  &nbsp;&nbsp;  <% if @partita2.result == 1 %> --> Vittoria <%else %> --> Sconfitta <%end %></dd>
-        <dd style="text-align:left;"><b><%= User.find(@partita3.user).username  %></b> &nbsp;&nbsp; VS &nbsp;&nbsp; <b><%= User.find(@partita3.avversario).username  %></b>  &nbsp;&nbsp;  <% if @partita3.result == 1 %> --> Vittoria <%else %> --> Sconfitta <%end %></dd>
 
+    <% if User.exists?(:id => @partita1.avversario)%>
+        <dd style="text-align:left;"><b><%= User.find(@partita1.user).username %></b> &nbsp;&nbsp; VS &nbsp;&nbsp; <b><%= User.find(@partita1.avversario).username  %></b>  &nbsp;&nbsp;  <% if @partita1.result == 1 %> --> Vittoria <%else %> --> Sconfitta <%end %></dd>
+    <% else %>
+        <dd style="text-align:left;">&nbsp;</dd>
+    <%end%>
+
+    <% if User.exists?(:id => @partita2.avversario)%>
+        <dd style="text-align:left;"><b><%= User.find(@partita2.user).username  %></b> &nbsp;&nbsp; VS &nbsp;&nbsp; <b><%= User.find(@partita2.avversario).username  %></b>  &nbsp;&nbsp;  <% if @partita2.result == 1 %> --> Vittoria <%else %> --> Sconfitta <%end %></dd>
+    <% else %>
+        <dd style="text-align:left;">&nbsp;</dd>
+    <%end%>
+
+    <% if User.exists?(:id => @partita3.avversario)%>
+        <dd style="text-align:left;"><b><%= User.find(@partita3.user).username  %></b> &nbsp;&nbsp; VS &nbsp;&nbsp; <b><%= User.find(@partita3.avversario).username  %></b>  &nbsp;&nbsp;  <% if @partita3.result == 1 %> --> Vittoria <%else %> --> Sconfitta <%end %></dd>
+    <% else %>
+        <dd style="text-align:left;">&nbsp;</dd>
+    <%end%>
 
 
 
@@ -395,8 +409,18 @@
 
 
 
-        <dd style="text-align:left;"><b><%= User.find(@partita1.user).username  %></b> &nbsp;&nbsp; VS &nbsp;&nbsp; <b><%= User.find(@partita1.avversario).username  %></b>  &nbsp;&nbsp;  <% if @partita1.result == 1 %> --> Vittoria <%else %> --> Sconfitta <%end %></dd>
+    <% if User.exists?(:id => @partita1.avversario)%>
+        <dd style="text-align:left;"><b><%= User.find(@partita1.user).username %></b> &nbsp;&nbsp; VS &nbsp;&nbsp; <b><%= User.find(@partita1.avversario).username  %></b>  &nbsp;&nbsp;  <% if @partita1.result == 1 %> --> Vittoria <%else %> --> Sconfitta <%end %></dd>
+    <% else %>
+        <dd style="text-align:left;">&nbsp;</dd>
+    <%end%>
+
+    <% if User.exists?(:id => @partita2.avversario)%>
         <dd style="text-align:left;"><b><%= User.find(@partita2.user).username  %></b> &nbsp;&nbsp; VS &nbsp;&nbsp; <b><%= User.find(@partita2.avversario).username  %></b>  &nbsp;&nbsp;  <% if @partita2.result == 1 %> --> Vittoria <%else %> --> Sconfitta <%end %></dd>
+    <% else %>
+        <dd style="text-align:left;">&nbsp;</dd>
+    <%end%>
+
         <dd style="text-align:left;">&nbsp;</dd>
 
 
@@ -408,7 +432,12 @@
         %>
 
 
-        <dd style="text-align:left;"><b><%= User.find(@partita1.user).username  %></b> &nbsp;&nbsp; VS &nbsp;&nbsp; <b><%= User.find(@partita1.avversario).username  %></b>  &nbsp;&nbsp;  <% if @partita1.result == 1 %> --> Vittoria <%else %> --> Sconfitta <%end %></dd>
+    <% if User.exists?(:id => @partita1.avversario)%>
+        <dd style="text-align:left;"><b><%= User.find(@partita1.user).username %></b> &nbsp;&nbsp; VS &nbsp;&nbsp; <b><%= User.find(@partita1.avversario).username  %></b>  &nbsp;&nbsp;  <% if @partita1.result == 1 %> --> Vittoria <%else %> --> Sconfitta <%end %></dd>
+    <% else %>
+        <dd style="text-align:left;">&nbsp;</dd>
+    <%end%>
+
         <dd style="text-align:left;"> &nbsp;</dd>
         <dd style="text-align:left;">&nbsp; </dd>
 

@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-
-
   get 'google_calendar/show'
   get 'infoc_admin/infoclan_admin'
   get 'classifica_c_admin/table_admin'
@@ -10,7 +8,7 @@ Rails.application.routes.draw do
   devise_for :users , controllers: {registrations: 'users/registrations', omniauth_callbacks: 'users/omniauth_callbacks'}, :path => '', :path_names => { :sign_in => "login", :sign_out => "logout", :sign_up => "register"}
 
     resources :admin, only: [:show]
-    #da capire se da errore
+
     resources :users, only: [:show, :edit, :update]
 
     resources :clan
