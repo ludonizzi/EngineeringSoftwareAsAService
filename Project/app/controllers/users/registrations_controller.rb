@@ -25,13 +25,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
       flash.keep[:danger] = "Attenzione: Nome non inserito"
       redirect_to '/register'
       return
-    end 
+    end
 
     if(params[:user][:cognome] == "")
       flash.keep[:danger] = "Attenzione: Cognome non inserito"
       redirect_to '/register'
       return
-    end 
+    end
 
     test_email =  User.find_by_email(params[:user][:email])
     if(test_email)
@@ -63,9 +63,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
          resource.roles_mask = "1"
 
           @clan = Clan.find(resource.clan)
-          membri = @clan.membri
-          membri = membri + 1
-          @clan.update_attributes!(:membri => membri)
+
 
           if @clan.membri == 0
             resource.roles_mask = "2"
@@ -75,14 +73,20 @@ class Users::RegistrationsController < Devise::RegistrationsController
           @users = User.all.order(created_at: :desc)
 
           @users.each do |user|
-              if user.roles_mask == 2
-                variabile = 1
-              end
+            if user.clan == @clan.id
+                  if user.roles_mask == 2
+                    variabile = 1
+                  end
             end
+          end
 
           if variabile == 0
              resource.roles_mask = "2"
           end
+
+          membri = @clan.membri
+          membri = membri + 1
+          @clan.update_attributes!(:membri => membri)
 
     end
   end
@@ -121,7 +125,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   end
 
-  
+
 
   # DELETE /resource
   # def destroy
