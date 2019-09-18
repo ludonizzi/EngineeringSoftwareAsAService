@@ -13,9 +13,7 @@ describe ProfileController, :type => :controller do
     end
 
 
-
         describe "Show Profilo" do
-
             it "show has a 200 status code" do
                 get :show
                 expect(response.status).to eq(200)
