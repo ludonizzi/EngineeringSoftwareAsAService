@@ -4,20 +4,22 @@ FactoryBot.define do
         email "admin@admin.com"
         password "adminadmin"
         roles_mask "4"
+        clan "nil"
         username "admin_1a"
-        created_at => "2019-08-05 10:19:18"
-        updated_at => "2019-08-05 10:19:18"
+        created_at "2019-08-05 10:19:18"
+        updated_at "2019-08-05 10:19:18"
     end
 
 
      factory :player1_a, class: User do
+        id "23" 
         email "playeremail@random.com"
         password "password"
         roles_mask "1"
         clan "1"
         username "player1_a"
-        created_at => "2019-08-05 10:19:18"
-        updated_at => "2019-08-05 10:19:18"
+        created_at "2019-08-05 10:19:18"
+        updated_at  "2019-08-05 10:19:18"
     end
 
 
@@ -27,33 +29,34 @@ FactoryBot.define do
         roles_mask "2"
         clan "2"
         username "player2_a"
-        created_at => "2019-08-05 10:19:18",
-        updated_at => "2019-08-05 10:19:18"
+        created_at "2019-08-05 10:19:18"
+        updated_at "2019-08-05 10:19:18"
     end
 
 
 
-    factory :clan1 class: Clan do
-        nome => "elfo",
-        membri => 0,
-        created_at => "2019-08-05 10:19:18"
-        updated_at => "2019-08-05 10:19:18"
+    factory :clan1, class: Clan do
+        nome "guerriero"
+        membri 0
+        created_at "2019-08-05 10:19:18"
+        updated_at "2019-08-05 10:19:18"
     end
 
 
 
     factory :clan2, class: Clan do
-        nome => "elfo",
-        membri => 0,
-        created_at => "2019-08-05 10:19:18"
-        updated_at => "2019-08-05 10:19:18"
+        nome "elfo"
+        membri 0
+        created_at "2019-08-05 10:19:18"
+        updated_at "2019-08-05 10:19:18"
     end
 
 
 
     factory :clan3, class: Clan do
-        nome => "elfo",
-        membri => 0,
-        created_at => "2019-08-05 10:19:18"
-        updated_at => "2019-08-05 10:19:18"
+        nome "orco"
+        membri 0
+        created_at "2019-08-05 10:19:18"
+        updated_at "2019-08-05 10:19:18"
     end
+end
