@@ -27,12 +27,15 @@ class ProfileController < ApplicationController
     def nomina_capoclan
         @var = params[:id]
         @user = User.find(@var)
+        @clan = Clan.find(@user.clan)
 
         if current_user.roles_mask == 4
             @users = User.all.order(created_at: :desc)
             @users.each do |us|
-                if us.roles_mask == 2
-                    us.update_attributes!(:roles_mask => 1)
+                if us.clan == @clan.id 
+                    if us.roles_mask == 2
+                        us.update_attributes!(:roles_mask => 1)
+                    end
                 end
             end
 

@@ -5,6 +5,16 @@ class AdminController < ApplicationController
         @admin = User.find(current_user.id)
     end
 
+    def calendars
+      client = Signet::OAuth2::Client.new(client_options)
+      client.update!(session[:authorization])
+  
+      service = Google::Apis::CalendarV3::CalendarService.new
+      service.authorization = client
+  
+      @calendar_list = service.list_calendar_lists
+    end
+
     def callback
         client = Signet::OAuth2::Client.new(client_options)
         client.code = params[:code]
@@ -15,17 +25,6 @@ class AdminController < ApplicationController
     
         redirect_to calendars_url
       end
-
-      def calendars
-        client = Signet::OAuth2::Client.new(client_options)
-        client.update!(session[:authorization])
-    
-        service = Google::Apis::CalendarV3::CalendarService.new
-        service.authorization = client
-    
-        @calendar_list = service.list_calendar_lists
-      end
-      
     
     def redirect
         client = Signet::OAuth2::Client.new(client_options)
